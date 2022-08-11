@@ -1,4 +1,4 @@
-import Head from "next/head";
+import Head from "next/head"
 
 interface SEOProps {
   title: string;
@@ -8,8 +8,8 @@ interface SEOProps {
 
 export function SEO({
   title,
-  description = "Slogan do projeto",
-  previewImageURL = "/images/logo.png",
+  description = 'Slogan do projeto',
+  previewImageURL = '/images/logo.png',
 }: SEOProps) {
   return (
     <Head>
@@ -27,5 +27,5 @@ export function SEO({
 
       <title>{title}</title>
     </Head>
-  );
+  )
 }

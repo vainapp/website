@@ -1,7 +1,6 @@
-import type { NextPage } from 'next'
 import { SEO } from '../components/SEO'
 
-const Home: NextPage = () => {
+export default function Home() {
   return (
     <>
       <SEO title="Início - Grupo C" />
@@ -10,5 +9,3 @@ const Home: NextPage = () => {
     </>
   )
 }
-
-export default Home

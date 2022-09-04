@@ -1,50 +1,14 @@
-import { extendTheme } from "@chakra-ui/react";
-
-export const theme = extendTheme({
+export default {
   colors: {
-    brand: {
-      primary: {
-        blue: {
-          "900": "#000B3C",
-          "800": "#323B69",
-          "500": "#0086CB",
-          "400": "#5CB5FE",
-        },
-        pink: {
-          "900": "#DE0C4B",
-          "700": "#FF5776",
-        },
-      },
-      secondary: {
-        lilac: {
-          "900": "#7A1FA0",
-          "800": "#AD52D2",
-        },
-        purple: {
-          "900": "#6600F7",
-          "700": "#A248FF",
-        }
-      },
-      gray: {
-        "900": "#676767",
-        "600": "#B0AFAF",
-        "500": "#CFCFCF",
-        "400": "#DBD6D6",
-      },
-      support: {
-        yellow: {
-          "900": "#FCCC00",
-          "500": "#FFFF50",
-        }
-      },
-      feedback: {
-        success: "#89D747",
-        error: "#DD4646",
-      },
-    },
+    primary: '#003559',
+    secondary: '#17C3B2',
+    success: '#12A454',
+    attention: '#DE0C4B',
+    warning: '#FBBF24',
+    info: '#1E96FC',
+    background: '#EDF2F4',
+    shape: '#FFFFFF',
+    text: '#969CB2',
+    text_dark: '#000000',
   },
-  fonts: {
-    heading: "Roboto",
-    body: "Roboto",
-  },
-});
+}

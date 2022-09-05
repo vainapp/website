@@ -17,5 +17,6 @@ module.exports = {
   plugins: ['react'],
   rules: {
     'class-methods-use-this': 'off',
+    'import/extensions': 'off',
   },
 }

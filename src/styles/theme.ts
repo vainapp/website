@@ -1,4 +1,4 @@
-import { MantineTheme, MantineThemeOverride } from '@mantine/core'
+import { MantineThemeOverride } from '@mantine/core'
 import { darken, lighten } from 'polished'
 
 const PRIMARY_SHADE = 6
@@ -40,16 +40,6 @@ export default {
   colorScheme: 'light',
   fontFamily: 'Roboto, sans serif',
   colors,
-  primaryColor: 'brandPrimary',
+  primaryColor: 'brandSecondary',
   primaryShade: PRIMARY_SHADE,
-  globalStyles: (theme: MantineTheme) => ({
-    '*, *::before, *::after': {
-      boxSizing: 'border-box',
-    },
-    body: {
-      ...theme.fn.fontStyles(),
-      backgroundColor: theme.colors.brandShape[PRIMARY_SHADE],
-      color: theme.colors.brandText[PRIMARY_SHADE],
-    },
-  }),
 } as unknown as MantineThemeOverride

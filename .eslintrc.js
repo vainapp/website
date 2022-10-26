@@ -18,5 +18,6 @@ module.exports = {
   rules: {
     'class-methods-use-this': 'off',
     'import/extensions': 'off',
+    'no-plusplus': 'off',
   },
 }

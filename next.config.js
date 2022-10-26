@@ -2,6 +2,9 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
+  experimental: {
+    adjustFontFallbacks: true,
+  },
 }
 
 module.exports = nextConfig

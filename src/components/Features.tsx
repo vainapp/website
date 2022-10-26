@@ -10,7 +10,6 @@ import {
 } from '@mantine/core'
 import {
   IconCoin,
-  IconChevronDown,
   IconChartAreaLine,
   IconUsers,
   IconBuildingCommunity,

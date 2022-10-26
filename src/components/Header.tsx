@@ -152,7 +152,7 @@ export default function HeaderMegaMenu() {
 
   return (
     <Box>
-      <Header height={60} px="md">
+      <Header height={80} px="md">
         <Container className={classes.container}>
           <Group position="apart" sx={{ height: '100%' }}>
             <Box sx={{ maxWidth: 40 }}>
@@ -249,7 +249,7 @@ export default function HeaderMegaMenu() {
         onClose={closeDrawer}
         size="100%"
         padding="md"
-        title="Navigation"
+        title="Navegação"
         className={classes.hiddenDesktop}
         zIndex={1000000}
       >

@@ -1,5 +1,4 @@
 import { createStyles, Container, Text, Button, Group } from '@mantine/core'
-import { IconBrandGithub } from '@tabler/icons'
 
 const BREAKPOINT = '@media (max-width: 755px)'
 

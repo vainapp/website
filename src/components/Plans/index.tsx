@@ -48,8 +48,8 @@ const useStyles = createStyles((theme) => ({
   highlightedCard: {
     border: '2px solid transparent',
     background: `
-    linear-gradient(#fff 0 0) padding-box,
-    linear-gradient(to right, ${theme.colors.brandSecondary[6]}, ${theme.colors.brandInfo[6]}) border-box
+      linear-gradient(#fff 0 0) padding-box,
+      linear-gradient(to right, ${theme.colors.brandSecondary[6]}, ${theme.colors.brandInfo[6]}) border-box
     `,
   },
 }))
@@ -60,66 +60,77 @@ export default function Plans({ plans }: PlansProps) {
 
   const plansOptions = plans
     .filter((item) => item.interval === interval)
-    .map((item) => (
-      <Card
-        key={item.priceId}
-        shadow="md"
-        radius="md"
-        p="xs"
-        withBorder
-        className={
-          item.product.metadata.highlight === 'true' && classes.highlightedCard
-        }
-      >
-        <Card.Section inheritPadding py="xs">
-          {item.product.metadata.highlight === 'true' ? (
-            <Box className={classes.cardHeader}>
-              <Badge
-                variant="gradient"
-                gradient={{ from: 'brandSecondary', to: 'brandInfo' }}
-                size="lg"
-              >
-                Popular
-              </Badge>
-            </Box>
-          ) : (
-            <>&nbsp;</>
-          )}
-        </Card.Section>
+    .map((item) => {
+      const isHighlighted = item.product.metadata.highlight === 'true'
+      const isFreeTrialAllowed =
+        item.product.metadata.allow_free_trial === 'true'
 
-        <Box px="lg" pb="lg">
-          <Title order={2} weight={400}>
-            {item.product.name}
-          </Title>
-          <Text color="dimmed" mb="xl">
-            {item.product.description}
-          </Text>
+      return (
+        <Card
+          key={item.priceId}
+          shadow="md"
+          radius="md"
+          p="xs"
+          withBorder
+          className={isHighlighted && classes.highlightedCard}
+        >
+          <Card.Section inheritPadding py="xs">
+            {isHighlighted ? (
+              <Box className={classes.cardHeader}>
+                <Badge
+                  variant="gradient"
+                  gradient={{ from: 'brandSecondary', to: 'brandInfo' }}
+                  size="lg"
+                >
+                  Popular
+                </Badge>
+              </Box>
+            ) : (
+              <>&nbsp;</>
+            )}
+          </Card.Section>
 
-          <Group position="left" spacing="xs" align="baseline" mb="lg">
-            <Title className={classes.cardPriceTitle}>{item.amount}</Title>
-            <Text color="dimmed" size="sm">
-              por {item.interval === 'month' ? 'mês' : 'ano'}
+          <Box px="lg" pb="lg">
+            <Title order={2} weight={400}>
+              {item.product.name}
+            </Title>
+            <Text color="dimmed" mb="xl">
+              {item.product.description}
             </Text>
-          </Group>
 
-          <Button fullWidth size="lg" mb="lg">
-            Começar agora
-          </Button>
+            <Group position="left" spacing="xs" align="baseline" mb="lg">
+              <Title
+                className={classes.cardPriceTitle}
+                color={isFreeTrialAllowed ? 'dimmed' : undefined}
+              >
+                {isFreeTrialAllowed ? <del>{item.amount}</del> : item.amount}
+              </Title>
+              <Text color="dimmed" size="sm">
+                por {item.interval === 'month' ? 'mês' : 'ano'}
+              </Text>
+            </Group>
 
-          <Text mb="sm">O plano {item.product.name} inclui:</Text>
-          <List
-            spacing="sm"
-            size="md"
-            center
-            icon={<IconCheck color={theme.fn.primaryColor()} size={16} />}
-          >
-            {item.product.metadata.features?.split(',').map((feature) => (
-              <List.Item key={feature}>{feature}</List.Item>
-            ))}
-          </List>
-        </Box>
-      </Card>
-    ))
+            <Button fullWidth size="lg" mb="lg">
+              {isFreeTrialAllowed
+                ? 'Experimente grátis por 1 mês'
+                : 'Assine agora'}
+            </Button>
+
+            <Text mb="sm">O plano {item.product.name} inclui:</Text>
+            <List
+              spacing="sm"
+              size="md"
+              center
+              icon={<IconCheck color={theme.fn.primaryColor()} size={16} />}
+            >
+              {item.product.metadata.features?.split(',').map((feature) => (
+                <List.Item key={feature}>{feature}</List.Item>
+              ))}
+            </List>
+          </Box>
+        </Card>
+      )
+    })
 
   return (
     <>

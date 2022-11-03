@@ -5,6 +5,7 @@ import stripe from '../services/stripe'
 import Features from '../components/Features'
 import Hero from '../components/Hero'
 import Plans, { PlansProps } from '../components/Plans'
+import Newsletter from '../components/Newsletter'
 
 interface HomeProps extends PlansProps {}
 
@@ -14,6 +15,7 @@ export default function Home({ plans }: HomeProps) {
       <Hero />
       <Features />
       <Plans plans={plans} />
+      <Newsletter />
     </>
   )
 }

@@ -57,6 +57,14 @@ const mockdata = [
 ]
 
 const useStyles = createStyles((theme) => ({
+  container: {
+    paddingBottom: 120,
+
+    '@media (max-width: 755px)': {
+      paddingBottom: 80,
+    },
+  },
+
   title: {
     fontSize: 34,
     fontWeight: 900,
@@ -118,7 +126,7 @@ export default function Features() {
   ))
 
   return (
-    <Container size="lg" py="xl">
+    <Container size="lg" pt="md" className={classes.container}>
       <Group position="center">
         <Badge variant="filled" size="lg">
           Melhores recursos

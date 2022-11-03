@@ -15,11 +15,13 @@ const useStyles = createStyles((theme) => ({
     alignItems: 'center',
     padding: theme.spacing.xl * 2,
     paddingTop: 120,
+    paddingBottom: 120,
 
     [`@media (max-width: ${theme.breakpoints.sm}px)`]: {
       flexDirection: 'column-reverse',
       padding: theme.spacing.xl,
       paddingTop: 80,
+      paddingBottom: 80,
     },
   },
 

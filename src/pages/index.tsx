@@ -6,6 +6,7 @@ import Features from '../components/Features'
 import Hero from '../components/Hero'
 import Plans, { PlansProps } from '../components/Plans'
 import Newsletter from '../components/Newsletter'
+import FAQ from '../components/FAQ'
 
 interface HomeProps extends PlansProps {}
 
@@ -16,6 +17,7 @@ export default function Home({ plans }: HomeProps) {
       <Features />
       <Plans plans={plans} />
       <Newsletter />
+      <FAQ />
     </>
   )
 }

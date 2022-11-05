@@ -11,6 +11,15 @@ import image from '../images/newsletter.svg'
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
+    backgroundColor: theme.colors.brandSecondary[0],
+    margin: '120px 0',
+
+    [`@media (max-width: ${theme.breakpoints.sm}px)`]: {
+      margin: '80px 0',
+    },
+  },
+
+  container: {
     display: 'flex',
     alignItems: 'center',
     padding: theme.spacing.xl * 2,
@@ -76,30 +85,32 @@ export default function Newsletter() {
   const { classes } = useStyles()
 
   return (
-    <Container size="lg" className={classes.wrapper}>
-      <div className={classes.body}>
-        <Title className={classes.title}>Pera aí...</Title>
-        <Text weight={500} size="lg" mb={5}>
-          Se inscreva na nossa lista de e-mails!
-        </Text>
-        <Text size="sm" color="dimmed">
-          Você nunca vai perder uma atualização sobre o nosso produto e notícias
-          importantes para você.
-        </Text>
+    <div className={classes.wrapper}>
+      <Container size="lg" className={classes.container}>
+        <div className={classes.body}>
+          <Title className={classes.title}>Pera aí...</Title>
+          <Text weight={500} size="lg" mb={5}>
+            Se inscreva na nossa lista de e-mails!
+          </Text>
+          <Text size="sm" color="dimmed">
+            Você nunca vai perder uma atualização sobre o nosso produto e
+            notícias importantes para você.
+          </Text>
 
-        <div className={classes.controls}>
-          <TextInput
-            placeholder="Seu e-mail"
-            classNames={{ input: classes.input, root: classes.inputWrapper }}
-          />
-          <Button className={classes.control}>Increver-se</Button>
+          <div className={classes.controls}>
+            <TextInput
+              placeholder="Seu e-mail"
+              classNames={{ input: classes.input, root: classes.inputWrapper }}
+            />
+            <Button className={classes.control}>Increver-se</Button>
+          </div>
         </div>
-      </div>
-      <Image
-        src={image.src}
-        className={classes.image}
-        alt="Envelope de e-mail"
-      />
-    </Container>
+        <Image
+          src={image.src}
+          className={classes.image}
+          alt="Envelope de e-mail"
+        />
+      </Container>
+    </div>
   )
 }

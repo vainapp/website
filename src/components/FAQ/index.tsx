@@ -11,11 +11,6 @@ import { useRouter } from 'next/router'
 import ContactIcons from './ContactIcons'
 
 const useStyles = createStyles((theme) => ({
-  wrapper: {
-    paddingTop: theme.spacing.md,
-    paddingBottom: theme.spacing.xl * 2,
-  },
-
   header: {
     height: 400,
     boxSizing: 'border-box',
@@ -161,7 +156,7 @@ export default function FAQ() {
   ))
 
   return (
-    <Container className={classes.wrapper} size="lg">
+    <Container size="lg">
       <div className={classes.header}>
         <Title className={classes.title}>Perguntas Frequentes</Title>
         <Title className={classes.titleOverlay} role="presentation">

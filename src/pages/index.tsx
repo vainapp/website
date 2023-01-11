@@ -1,15 +1,21 @@
+import { FloatingBottomBanner } from '../components/FloatingBottomBanner'
 import { CTAFreeTrial } from '../components/CTAFreeTrial'
-import { Features } from '../components/Features'
+import { FeatureList } from '../components/FeatureList'
 import { Hero } from '../components/Hero'
-import { Pricing } from '../components/Pricing'
+import { HighlightedFeatures } from '../components/HighlightedFeatures'
+import { Stats } from '../components/Stats'
+import { CTANewsletter } from '../components/CTANewsletter'
 
 export default function Home(): JSX.Element {
   return (
     <>
       <Hero />
-      <Features />
+      <HighlightedFeatures />
+      <FeatureList />
+      <Stats />
       <CTAFreeTrial />
-      <Pricing />
+      <CTANewsletter />
+      <FloatingBottomBanner />
     </>
   )
 }

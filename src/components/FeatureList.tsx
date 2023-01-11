@@ -43,7 +43,7 @@ const features = [
   },
 ]
 
-export const Features: React.FC = () => {
+export const FeatureList: React.FC = () => {
   return (
     <div className="bg-white">
       <div className="mx-auto max-w-7xl py-24 px-6 sm:py-32 lg:grid lg:grid-cols-3 lg:gap-x-12 lg:px-8 lg:py-40">

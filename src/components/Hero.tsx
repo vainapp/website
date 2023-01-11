@@ -12,7 +12,6 @@ import {
 } from '@heroicons/react/24/outline'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import { classNames } from '../helpers/classNames'
-import Image from 'next/image'
 
 const solutions = [
   {
@@ -87,11 +86,11 @@ export const Header: React.FC = () => {
       <div className="flex items-center justify-between p-6 md:justify-start md:space-x-10">
         <div className="flex justify-start lg:w-0 lg:flex-1">
           <a href="#">
-            <span className="sr-only">Your Company</span>
-            <Image
+            <span className="sr-only">Vain</span>
+            <img
               className="h-8 w-auto sm:h-10"
-              src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-              alt=""
+              src="/logo.png"
+              alt="Vain logo"
             />
           </a>
         </div>
@@ -281,11 +280,7 @@ export const Header: React.FC = () => {
             <div className="px-5 pt-5 pb-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <Image
-                    className="h-8 w-auto"
-                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                    alt="Your Company"
-                  />
+                  <img className="h-8 w-auto" src="/logo.png" alt="Vain logo" />
                 </div>
                 <div className="-mr-2">
                   <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">

@@ -89,7 +89,7 @@ export const Header: React.FC = () => {
             <span className="sr-only">Vain</span>
             <picture>
               <img
-                className="h-8 w-auto sm:h-10"
+                className="h-8 w-auto sm:h-14"
                 src="/logo.png"
                 alt="Vain logo"
               />
@@ -97,7 +97,7 @@ export const Header: React.FC = () => {
           </a>
         </div>
         <div className="-my-2 -mr-2 md:hidden">
-          <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+          <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-orange-500">
             <span className="sr-only">Open menu</span>
             <Bars3Icon className="h-6 w-6" aria-hidden="true" />
           </Popover.Button>
@@ -108,14 +108,14 @@ export const Header: React.FC = () => {
               <>
                 <Popover.Button
                   className={classNames(
-                    open ? 'text-gray-900' : 'text-gray-500',
-                    'group inline-flex items-center rounded-md bg-transparent text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'
+                    open ? 'text-gray-900' : 'text-gray-700',
+                    'group inline-flex items-center rounded-md bg-transparent text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2'
                   )}
                 >
                   <span>Solutions</span>
                   <ChevronDownIcon
                     className={classNames(
-                      open ? 'text-gray-600' : 'text-gray-400',
+                      open ? 'text-gray-600' : 'text-gray-700',
                       'ml-2 h-5 w-5 group-hover:text-gray-500'
                     )}
                     aria-hidden="true"
@@ -140,7 +140,7 @@ export const Header: React.FC = () => {
                             href={solution.href}
                             className="-m-3 flex items-start rounded-lg p-3 hover:bg-gray-50"
                           >
-                            <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-md bg-indigo-500 text-white sm:h-12 sm:w-12">
+                            <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-md bg-orange-500 text-white sm:h-12 sm:w-12">
                               <solution.icon
                                 className="h-6 w-6"
                                 aria-hidden="true"
@@ -166,7 +166,7 @@ export const Header: React.FC = () => {
                             <div className="text-base font-medium text-gray-900">
                               Enterprise
                             </div>
-                            <span className="ml-3 inline-flex items-center rounded-full bg-indigo-100 px-3 py-0.5 text-xs font-medium leading-5 text-indigo-800">
+                            <span className="ml-3 inline-flex items-center rounded-full bg-orange-100 px-3 py-0.5 text-xs font-medium leading-5 text-orange-800">
                               New
                             </span>
                           </div>
@@ -185,13 +185,13 @@ export const Header: React.FC = () => {
 
           <a
             href="#"
-            className="text-base font-medium text-gray-500 hover:text-gray-900"
+            className="text-base font-medium text-gray-700 hover:text-gray-900"
           >
             Pricing
           </a>
           <a
             href="#"
-            className="text-base font-medium text-gray-500 hover:text-gray-900"
+            className="text-base font-medium text-gray-700 hover:text-gray-900"
           >
             Docs
           </a>
@@ -201,14 +201,14 @@ export const Header: React.FC = () => {
               <>
                 <Popover.Button
                   className={classNames(
-                    open ? 'text-gray-900' : 'text-gray-500',
-                    'group inline-flex items-center rounded-md bg-white text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'
+                    open ? 'text-gray-900' : 'text-gray-700',
+                    'group inline-flex items-center rounded-md bg-transparent text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2'
                   )}
                 >
                   <span>More</span>
                   <ChevronDownIcon
                     className={classNames(
-                      open ? 'text-gray-600' : 'text-gray-400',
+                      open ? 'text-gray-600' : 'text-gray-700',
                       'ml-2 h-5 w-5 group-hover:text-gray-500'
                     )}
                     aria-hidden="true"
@@ -252,13 +252,13 @@ export const Header: React.FC = () => {
         <div className="hidden items-center justify-end md:flex md:flex-1 lg:w-0">
           <a
             href="#"
-            className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900"
+            className="whitespace-nowrap text-base font-medium text-gray-700 hover:text-gray-900"
           >
             Sign in
           </a>
           <a
             href="#"
-            className="ml-8 inline-flex items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
+            className="ml-8 inline-flex items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-orange-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-orange-700"
           >
             Sign up
           </a>
@@ -291,7 +291,7 @@ export const Header: React.FC = () => {
                   </picture>
                 </div>
                 <div className="-mr-2">
-                  <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                  <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-orange-500">
                     <span className="sr-only">Close menu</span>
                     <XMarkIcon className="h-6 w-6" aria-hidden="true" />
                   </Popover.Button>
@@ -305,7 +305,7 @@ export const Header: React.FC = () => {
                       href={solution.href}
                       className="-m-3 flex items-center rounded-lg p-3 hover:bg-gray-50"
                     >
-                      <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-md bg-indigo-500 text-white">
+                      <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-md bg-orange-500 text-white">
                         <solution.icon className="h-6 w-6" aria-hidden="true" />
                       </div>
                       <div className="ml-4 text-base font-medium text-gray-900">
@@ -351,13 +351,13 @@ export const Header: React.FC = () => {
               <div className="mt-6">
                 <a
                   href="#"
-                  className="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
+                  className="flex w-full items-center justify-center rounded-md border border-transparent bg-orange-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-orange-700"
                 >
                   Sign up
                 </a>
                 <p className="mt-6 text-center text-base font-medium text-gray-500">
                   Existing customer?{' '}
-                  <a href="#" className="text-indigo-600 hover:text-indigo-500">
+                  <a href="#" className="text-orange-600 hover:text-orange-500">
                     Sign in
                   </a>
                 </p>

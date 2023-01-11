@@ -6,13 +6,13 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint --ext .{js,ts,tsx} .",
-    "lint:fix": "eslint --ext .{js,ts,tsx} . --fix",
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx .",
+    "lint:fix": "eslint --ext .js,.jsx,.ts,.tsx . --fix",
     "madge": "madge --circular ./src",
     "pre-commit": "lint-staged"
   },
   "lint-staged": {
-    "./**/*.{js,ts,tsx}": [
+    "./**/*.{js,jsx,ts,tsx}": [
       "yarn madge",
       "yarn lint:fix"
     ]
@@ -24,10 +24,11 @@
     "@types/react-dom": "18.0.10",
     "next": "13.1.1",
     "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "typescript": "*"
+    "react-dom": "18.2.0"
   },
   "devDependencies": {
+    "@headlessui/react": "1.7.7",
+    "@heroicons/react": "2.0.13",
     "@typescript-eslint/eslint-plugin": "5.0.0",
     "autoprefixer": "10.4.13",
     "eslint": "8.0.1",
@@ -44,6 +45,7 @@
     "madge": "5.0.1",
     "postcss": "8.4.21",
     "prettier": "2.8.2",
-    "tailwindcss": "3.2.4"
+    "tailwindcss": "3.2.4",
+    "typescript": "*"
   }
 }

@@ -1,8 +1,8 @@
 import { Html, Head, Main, NextScript } from 'next/document'
 
-export default function Document() {
+export default function Document(): JSX.Element {
   return (
-    <Html lang="en">
+    <Html lang="pt-BR">
       <Head />
       <body>
         <Main />

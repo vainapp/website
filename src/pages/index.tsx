@@ -1,3 +1,5 @@
+import { Hero } from '../components/Hero'
+
 export default function Home(): JSX.Element {
-  return <div>Homepage</div>
+  return <Hero />
 }

@@ -1,3 +1,5 @@
+import { PricingTable } from '../components/PricingTable'
+
 export default function Pricing(): JSX.Element {
-  return <span>Pricing page</span>
+  return <PricingTable />
 }

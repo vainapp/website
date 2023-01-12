@@ -13,6 +13,7 @@ import {
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import { classNames } from '../helpers/classNames'
 import { Link } from './Link'
+import { URLS } from '../constants/urls'
 
 const solutions = [
   {
@@ -86,7 +87,7 @@ export const Header: React.FC = () => {
     <Popover className="relative bg-transparent z-10">
       <div className="flex items-center justify-between p-6 md:justify-start md:space-x-10">
         <div className="flex justify-start lg:w-0 lg:flex-1">
-          <a href="#">
+          <Link href="/">
             <span className="sr-only">Vain</span>
             <picture>
               <img
@@ -95,7 +96,7 @@ export const Header: React.FC = () => {
                 alt="Vain logo"
               />
             </picture>
-          </a>
+          </Link>
         </div>
         <div className="-my-2 -mr-2 md:hidden">
           <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-orange-500">
@@ -253,18 +254,20 @@ export const Header: React.FC = () => {
           </Popover>
         </Popover.Group>
         <div className="hidden items-center justify-end md:flex md:flex-1 lg:w-0">
-          <a
-            href="#"
+          <Link
+            href={URLS.DASHBOARD_URL}
+            target="_blank"
             className="whitespace-nowrap text-base font-medium text-gray-700 hover:text-gray-900"
           >
-            Sign in
-          </a>
-          <a
-            href="#"
+            Entrar
+          </Link>
+          <Link
+            href="/"
+            anchor="pricing"
             className="ml-8 inline-flex items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-orange-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-orange-700"
           >
-            Sign up
-          </a>
+            Criar uma conta
+          </Link>
         </div>
       </div>
 

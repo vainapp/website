@@ -6,6 +6,7 @@ import { HighlightedFeatures } from '../components/HighlightedFeatures'
 import { Stats } from '../components/Stats'
 import { CTANewsletter } from '../components/CTANewsletter'
 import { FAQ } from '../components/FAQ'
+import { Pricing } from '../components/Pricing'
 
 export default function Home(): JSX.Element {
   return (
@@ -15,6 +16,7 @@ export default function Home(): JSX.Element {
       <FeatureList />
       <Stats />
       <CTAFreeTrial />
+      <Pricing />
       <FAQ />
       <CTANewsletter />
       <FloatingBottomBanner />

@@ -1,5 +1,6 @@
 import { InboxIcon, SparklesIcon } from '@heroicons/react/24/outline'
 import { Element } from 'react-scroll'
+import { Link } from './Link'
 
 export const HighlightedFeatures: React.FC = () => {
   return (
@@ -21,21 +22,21 @@ export const HighlightedFeatures: React.FC = () => {
               </div>
               <div className="mt-6">
                 <h2 className="text-3xl font-bold tracking-tight text-gray-900">
-                  Stay on top of customer support
+                  Gestão empresarial eficiente
                 </h2>
                 <p className="mt-4 text-lg text-gray-500">
-                  Semper curabitur ullamcorper posuere nunc sed. Ornare iaculis
-                  bibendum malesuada faucibus lacinia porttitor. Pulvinar
-                  laoreet sagittis viverra duis. In venenatis sem arcu pretium
-                  pharetra at. Lectus viverra dui tellus ornare pharetra.
+                  Nossa plataforma fácil de usar permite que você gerencie todos
+                  os aspectos do seu negócio em um só lugar, simplificando suas
+                  operações e economizando seu tempo.
                 </p>
                 <div className="mt-6">
-                  <a
-                    href="#"
+                  <Link
+                    href="/"
+                    anchor="client-app"
                     className="inline-flex rounded-lg bg-orange-600 px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-orange-600 hover:bg-orange-700 hover:ring-orange-700"
                   >
-                    Get started
-                  </a>
+                    Saber mais
+                  </Link>
                 </div>
               </div>
             </div>
@@ -80,7 +81,7 @@ export const HighlightedFeatures: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className="mt-24">
+      <Element name="client-app" className="mt-24">
         <div className="lg:mx-auto lg:grid lg:max-w-7xl lg:grid-flow-col-dense lg:grid-cols-2 lg:gap-24 lg:px-8">
           <div className="mx-auto max-w-xl px-6 lg:col-start-2 lg:mx-0 lg:max-w-none lg:py-32 lg:px-0">
             <div>
@@ -94,21 +95,21 @@ export const HighlightedFeatures: React.FC = () => {
               </div>
               <div className="mt-6">
                 <h2 className="text-3xl font-bold tracking-tight text-gray-900">
-                  Better understand your customers
+                  Forneça poder aos seus clientes com nosso aplicativo
                 </h2>
                 <p className="mt-4 text-lg text-gray-500">
-                  Semper curabitur ullamcorper posuere nunc sed. Ornare iaculis
-                  bibendum malesuada faucibus lacinia porttitor. Pulvinar
-                  laoreet sagittis viverra duis. In venenatis sem arcu pretium
-                  pharetra at. Lectus viverra dui tellus ornare pharetra.
+                  Nosso aplicativo coloca o poder do seu negócio nas palmas das
+                  mãos de seus clientes, permitindo que eles marquem facilmente
+                  compromissos, visualizem serviços e preços e muito mais.
                 </p>
                 <div className="mt-6">
-                  <a
-                    href="#"
+                  <Link
+                    href="/"
+                    anchor="feature-list"
                     className="inline-flex rounded-lg bg-orange-600 px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-orange-600 hover:bg-orange-700 hover:ring-orange-700"
                   >
-                    Get started
-                  </a>
+                    Saber mais
+                  </Link>
                 </div>
               </div>
             </div>
@@ -125,7 +126,7 @@ export const HighlightedFeatures: React.FC = () => {
             </div>
           </div>
         </div>
-      </div>
+      </Element>
     </Element>
   )
 }

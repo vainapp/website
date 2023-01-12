@@ -3,37 +3,37 @@ import { Element } from 'react-scroll'
 
 const features = [
   {
-    name: 'Invite team members',
+    name: 'Otimize a gestão de funcionários',
+    description:
+      'Gerencie e acompanhe os cronogramas, tarefas e desempenho de seus funcionários, dando-lhe o controle necessário para administrar seus negócios com eficiência',
+  },
+  {
+    name: 'Controle flexível de serviços e preços',
+    description:
+      'Gerencie e atualize facilmente seus serviços e preços, dando-lhe a flexibilidade de se adaptar ao mercado e atender às necessidades de seus clientes.',
+  },
+  {
+    name: 'Gerencie e acompanhe suas franquias com facilidade',
     description:
       'You can manage phone, email and chat conversations all from a single mailbox.',
   },
   {
-    name: 'List view',
+    name: 'Agende compromissos de maneira eficiente com nossa funcionalidade de calendários e horários',
     description:
       'You can manage phone, email and chat conversations all from a single mailbox.',
   },
   {
-    name: 'Keyboard shortcuts',
-    description:
-      'You can manage phone, email and chat conversations all from a single mailbox.',
-  },
-  {
-    name: 'Calendars',
-    description:
-      'You can manage phone, email and chat conversations all from a single mailbox.',
-  },
-  {
-    name: 'Notifications',
+    name: 'Nunca perca mais um compromisso com nossos lembretes',
     description:
       'Find what you need with advanced filters, bulk actions, and quick views.',
   },
   {
-    name: 'Boards',
+    name: 'Tome decisões baseadas em dados com nossos relatórios e análises',
     description:
       'Find what you need with advanced filters, bulk actions, and quick views.',
   },
   {
-    name: 'Reporting',
+    name: 'Melhore sua reputação e atraia novos clientes com nosso sistema de classificação baseado em avaliações',
     description:
       'Find what you need with advanced filters, bulk actions, and quick views.',
   },
@@ -50,10 +50,10 @@ export const FeatureList: React.FC = () => {
       <div className="mx-auto max-w-7xl py-24 px-6 sm:py-32 lg:grid lg:grid-cols-3 lg:gap-x-12 lg:px-8 lg:py-40">
         <div>
           <h2 className="text-lg font-semibold leading-8 tracking-tight text-orange-600">
-            Everything you need
+            Tudo que você precisa
           </h2>
           <p className="mt-2 text-4xl font-bold tracking-tight text-gray-900">
-            All-in-one platform
+            Plataforma tudo-em-um
           </p>
           <p className="mt-6 text-base leading-7 text-gray-600">
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores

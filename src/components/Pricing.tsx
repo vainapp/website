@@ -1,25 +1,17 @@
 import { CheckIcon } from '@heroicons/react/24/outline'
+import { useState } from 'react'
 import { Element } from 'react-scroll'
-
-const hobbyFeatures = [
-  'Pariatur quod similique',
-  'Sapiente libero doloribus',
-  'Vel ipsa esse repudiandae',
-]
-const scaleFeatures = [
-  'Pariatur quod similique',
-  'Sapiente libero doloribus',
-  'Vel ipsa esse repudiandae',
-]
-const growthFeatures = [
-  'Quia rem est sed impedit magnam',
-  'Dolorem vero ratione voluptates',
-  'Qui sed ab doloribus voluptatem dolore',
-  'Laborum commodi molestiae id et fugiat',
-  'Nam ut ipsa nesciunt culpa modi dolor',
-]
+import { basicPlan, plusPlan, proPlan } from '../constants/plans'
+import { classNames } from '../helpers/classNames'
 
 export const Pricing: React.FC = () => {
+  const [intervalFilter, setIntervalFilter] = useState<'monthly' | 'yearly'>(
+    'monthly'
+  )
+  const intervalFilterLabel = intervalFilter === 'monthly' ? '/mês' : '/ano'
+  const intervalPriceKey =
+    intervalFilter === 'monthly' ? 'monthly_price' : 'yearly_price'
+
   return (
     <Element name="pricing" className="bg-white">
       <div className="px-6 pt-12 lg:px-8 lg:pt-20">
@@ -33,8 +25,41 @@ export const Pricing: React.FC = () => {
           <p className="mx-auto mt-3 max-w-4xl text-xl text-gray-600 sm:mt-5 sm:text-2xl">
             Não importa o tamanho, temos soluções para todos! Escalável e
             adaptável a empresas de qualquer tamanho, nós temos o que você
-            precisa para crescer seu negócio
+            precisa para crescer
           </p>
+        </div>
+      </div>
+
+      <div className="relative mt-12 flex justify-center sm:mt-16">
+        <div className="flex rounded-lg bg-orange-600 p-0.5">
+          <button
+            type="button"
+            className={classNames(
+              intervalFilter === 'monthly'
+                ? 'bg-white text-orange-600 hover:bg-orange-50 focus:ring-offset-orange-600 focus:ring-transparent'
+                : 'text-orange-100 hover:bg-orange-700 focus:ring-white focus:ring-offset-orange-600',
+              'relative whitespace-nowrap rounded-md border border-orange-600 py-2 px-6 text-sm font-medium shadow-sm focus:z-10 focus:outline-none focus:ring-2 focus:ring-offset-2'
+            )}
+            onClick={() => {
+              setIntervalFilter('monthly')
+            }}
+          >
+            Assinatura mensal
+          </button>
+          <button
+            type="button"
+            className={classNames(
+              intervalFilter === 'yearly'
+                ? 'bg-white text-orange-600 hover:bg-orange-50 focus:ring-offset-orange-600 focus:ring-transparent'
+                : 'text-orange-100 hover:bg-orange-700 focus:ring-white focus:ring-offset-orange-600',
+              'relative whitespace-nowrap rounded-md border border-orange-600 py-2 px-6 text-sm font-medium shadow-sm focus:z-10 focus:outline-none focus:ring-2 focus:ring-offset-2'
+            )}
+            onClick={() => {
+              setIntervalFilter('yearly')
+            }}
+          >
+            Assinatura anual
+          </button>
         </div>
       </div>
 
@@ -50,26 +75,28 @@ export const Pricing: React.FC = () => {
                       <div>
                         <h3
                           className="text-center text-2xl font-medium text-gray-900"
-                          id="tier-hobby"
+                          id="tier-basic"
                         >
-                          Hobby
+                          {basicPlan.name}
                         </h3>
                         <div className="mt-4 flex items-center justify-center">
                           <span className="flex items-start px-3 text-6xl tracking-tight text-gray-900">
                             <span className="mt-2 mr-2 text-4xl font-medium tracking-tight">
-                              $
+                              R$
                             </span>
-                            <span className="font-bold">79</span>
+                            <span className="font-bold">
+                              {basicPlan[intervalPriceKey].value}
+                            </span>
                           </span>
                           <span className="text-xl font-medium text-gray-500">
-                            /month
+                            {intervalFilterLabel}
                           </span>
                         </div>
                       </div>
                     </div>
                     <div className="flex flex-1 flex-col justify-between border-t-2 border-gray-100 bg-gray-50 p-6 sm:p-10 lg:p-6 xl:p-10">
                       <ul role="list" className="space-y-4">
-                        {hobbyFeatures.map((feature) => (
+                        {basicPlan.features.map((feature) => (
                           <li key={feature} className="flex items-start">
                             <div className="flex-shrink-0">
                               <CheckIcon
@@ -88,9 +115,9 @@ export const Pricing: React.FC = () => {
                           <a
                             href="#"
                             className="block w-full rounded-lg border border-transparent bg-white px-6 py-3 text-center text-base font-medium text-orange-600 hover:bg-gray-50"
-                            aria-describedby="tier-hobby"
+                            aria-describedby="tier-basic"
                           >
-                            Start your trial
+                            Inicie seu período de testes
                           </a>
                         </div>
                       </div>
@@ -107,7 +134,7 @@ export const Pricing: React.FC = () => {
                   <div className="absolute inset-x-0 top-0 translate-y-px transform">
                     <div className="flex -translate-y-1/2 transform justify-center">
                       <span className="inline-flex rounded-full bg-orange-600 px-4 py-1 text-base font-semibold text-white">
-                        Most popular
+                        Mais popular
                       </span>
                     </div>
                   </div>
@@ -115,26 +142,28 @@ export const Pricing: React.FC = () => {
                     <div>
                       <h3
                         className="text-center text-3xl font-semibold tracking-tight text-gray-900 sm:-mx-6"
-                        id="tier-growth"
+                        id="tier-plus"
                       >
-                        Growth
+                        {plusPlan.name}
                       </h3>
                       <div className="mt-4 flex items-center justify-center">
                         <span className="flex items-start px-3 text-6xl tracking-tight text-gray-900 sm:text-6xl">
                           <span className="mt-2 mr-2 text-4xl font-medium tracking-tight">
-                            $
+                            R$
                           </span>
-                          <span className="font-bold">149</span>
+                          <span className="font-bold">
+                            {plusPlan[intervalPriceKey].value}
+                          </span>
                         </span>
                         <span className="text-2xl font-medium text-gray-500">
-                          /month
+                          {intervalFilterLabel}
                         </span>
                       </div>
                     </div>
                   </div>
                   <div className="rounded-b-lg border-t-2 border-gray-100 bg-gray-50 px-6 pt-10 pb-8 sm:px-10 sm:py-10">
                     <ul role="list" className="space-y-4">
-                      {growthFeatures.map((feature) => (
+                      {plusPlan.features.map((feature) => (
                         <li key={feature} className="flex items-start">
                           <div className="flex-shrink-0">
                             <CheckIcon
@@ -153,9 +182,9 @@ export const Pricing: React.FC = () => {
                         <a
                           href="#"
                           className="block w-full rounded-lg border border-transparent bg-orange-600 px-6 py-4 text-center text-xl font-medium leading-6 text-white hover:bg-orange-700"
-                          aria-describedby="tier-growth"
+                          aria-describedby="tier-plus"
                         >
-                          Start your trial
+                          Assinar
                         </a>
                       </div>
                     </div>
@@ -169,26 +198,28 @@ export const Pricing: React.FC = () => {
                       <div>
                         <h3
                           className="text-center text-2xl font-medium text-gray-900"
-                          id="tier-scale"
+                          id="tier-pro"
                         >
-                          Scale
+                          {proPlan.name}
                         </h3>
                         <div className="mt-4 flex items-center justify-center">
                           <span className="flex items-start px-3 text-6xl tracking-tight text-gray-900">
                             <span className="mt-2 mr-2 text-4xl font-medium tracking-tight">
-                              $
+                              R$
                             </span>
-                            <span className="font-bold">349</span>
+                            <span className="font-bold">
+                              {proPlan[intervalPriceKey].value}
+                            </span>
                           </span>
                           <span className="text-xl font-medium text-gray-500">
-                            /month
+                            {intervalFilterLabel}
                           </span>
                         </div>
                       </div>
                     </div>
                     <div className="flex flex-1 flex-col justify-between border-t-2 border-gray-100 bg-gray-50 p-6 sm:p-10 lg:p-6 xl:p-10">
                       <ul role="list" className="space-y-4">
-                        {scaleFeatures.map((feature) => (
+                        {proPlan.features.map((feature) => (
                           <li key={feature} className="flex items-start">
                             <div className="flex-shrink-0">
                               <CheckIcon
@@ -207,9 +238,9 @@ export const Pricing: React.FC = () => {
                           <a
                             href="#"
                             className="block w-full rounded-lg border border-transparent bg-white px-6 py-3 text-center text-base font-medium text-orange-600 hover:bg-gray-50"
-                            aria-describedby="tier-scale"
+                            aria-describedby="tier-pro"
                           >
-                            Start your trial
+                            Assinar
                           </a>
                         </div>
                       </div>

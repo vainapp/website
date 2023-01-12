@@ -56,9 +56,8 @@ export const FeatureList: React.FC = () => {
             Plataforma tudo-em-um
           </p>
           <p className="mt-6 text-base leading-7 text-gray-600">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores
-            impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis
-            ratione.
+            Foque no que realmente importa: seus clientes. Nós te ajudamos a
+            cuidar do resto.
           </p>
         </div>
         <div className="mt-20 lg:col-span-2 lg:mt-0">

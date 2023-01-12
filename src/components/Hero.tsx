@@ -43,7 +43,7 @@ export const Hero: React.FC = () => {
                     <Link
                       href="/"
                       anchor="highlighted-features"
-                      className="font-semibold text-orange-600"
+                      className="font-semibold text-orange-500"
                     >
                       <span className="absolute inset-0" aria-hidden="true" />
                       Saber mais <span aria-hidden="true">&rarr;</span>
@@ -63,7 +63,7 @@ export const Hero: React.FC = () => {
                   <Link
                     href="/"
                     anchor="highlighted-features"
-                    className="inline-block rounded-lg bg-orange-600 px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-orange-600 hover:bg-orange-700 hover:ring-orange-700"
+                    className="inline-block rounded-lg bg-orange-500 px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-orange-500 hover:bg-orange-600 hover:ring-orange-600"
                   >
                     Começar{' '}
                     <span className="text-orange-200" aria-hidden="true">

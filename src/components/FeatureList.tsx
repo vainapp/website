@@ -5,7 +5,7 @@ const features = [
   {
     name: 'Otimize a gestão de funcionários',
     description:
-      'Gerencie e acompanhe os cronogramas, tarefas e desempenho de seus funcionários, dando-lhe o controle necessário para administrar seus negócios com eficiência',
+      'Gerencie e acompanhe os cronogramas, tarefas e desempenho de seus funcionários, dando-lhe o controle necessário para administrar seus negócios com eficiência.',
   },
   {
     name: 'Controle flexível de serviços e preços',

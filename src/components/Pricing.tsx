@@ -31,14 +31,14 @@ export const Pricing: React.FC = () => {
       </div>
 
       <div className="relative mt-12 flex justify-center sm:mt-16">
-        <div className="flex rounded-lg bg-orange-600 p-0.5">
+        <div className="flex rounded-lg bg-orange-500 p-0.5">
           <button
             type="button"
             className={classNames(
               intervalFilter === 'monthly'
-                ? 'bg-white text-orange-600 hover:bg-orange-50 focus:ring-offset-orange-600 focus:ring-transparent'
-                : 'text-orange-100 hover:bg-orange-700 focus:ring-white focus:ring-offset-orange-600',
-              'relative whitespace-nowrap rounded-md border border-orange-600 py-2 px-6 text-sm font-medium shadow-sm focus:z-10 focus:outline-none focus:ring-2 focus:ring-offset-2'
+                ? 'bg-white text-orange-500 hover:bg-orange-50 focus:ring-offset-orange-500 focus:ring-transparent'
+                : 'text-orange-100 hover:bg-orange-600 focus:ring-white focus:ring-offset-orange-500',
+              'relative whitespace-nowrap rounded-md border border-orange-500 py-2 px-6 text-sm font-medium shadow-sm focus:z-10 focus:outline-none focus:ring-2 focus:ring-offset-2'
             )}
             onClick={() => {
               setIntervalFilter('monthly')
@@ -50,9 +50,9 @@ export const Pricing: React.FC = () => {
             type="button"
             className={classNames(
               intervalFilter === 'yearly'
-                ? 'bg-white text-orange-600 hover:bg-orange-50 focus:ring-offset-orange-600 focus:ring-transparent'
-                : 'text-orange-100 hover:bg-orange-700 focus:ring-white focus:ring-offset-orange-600',
-              'relative whitespace-nowrap rounded-md border border-orange-600 py-2 px-6 text-sm font-medium shadow-sm focus:z-10 focus:outline-none focus:ring-2 focus:ring-offset-2'
+                ? 'bg-white text-orange-500 hover:bg-orange-50 focus:ring-offset-orange-500 focus:ring-transparent'
+                : 'text-orange-100 hover:bg-orange-600 focus:ring-white focus:ring-offset-orange-500',
+              'relative whitespace-nowrap rounded-md border border-orange-500 py-2 px-6 text-sm font-medium shadow-sm focus:z-10 focus:outline-none focus:ring-2 focus:ring-offset-2'
             )}
             onClick={() => {
               setIntervalFilter('yearly')
@@ -114,7 +114,7 @@ export const Pricing: React.FC = () => {
                         <div className="rounded-lg shadow-md">
                           <a
                             href="#"
-                            className="block w-full rounded-lg border border-transparent bg-white px-6 py-3 text-center text-base font-medium text-orange-600 hover:bg-gray-50"
+                            className="block w-full rounded-lg border border-transparent bg-white px-6 py-3 text-center text-base font-medium text-orange-500 hover:bg-gray-50"
                             aria-describedby="tier-basic"
                           >
                             Inicie seu período de testes
@@ -128,12 +128,12 @@ export const Pricing: React.FC = () => {
               <div className="mx-auto mt-10 max-w-lg lg:col-start-3 lg:col-end-6 lg:row-start-1 lg:row-end-4 lg:mx-0 lg:mt-0 lg:max-w-none">
                 <div className="relative z-10 rounded-lg shadow-xl">
                   <div
-                    className="pointer-events-none absolute inset-0 rounded-lg border-2 border-orange-600"
+                    className="pointer-events-none absolute inset-0 rounded-lg border-2 border-orange-500"
                     aria-hidden="true"
                   />
                   <div className="absolute inset-x-0 top-0 translate-y-px transform">
                     <div className="flex -translate-y-1/2 transform justify-center">
-                      <span className="inline-flex rounded-full bg-orange-600 px-4 py-1 text-base font-semibold text-white">
+                      <span className="inline-flex rounded-full bg-orange-500 px-4 py-1 text-base font-semibold text-white">
                         Mais popular
                       </span>
                     </div>
@@ -181,7 +181,7 @@ export const Pricing: React.FC = () => {
                       <div className="rounded-lg shadow-md">
                         <a
                           href="#"
-                          className="block w-full rounded-lg border border-transparent bg-orange-600 px-6 py-4 text-center text-xl font-medium leading-6 text-white hover:bg-orange-700"
+                          className="block w-full rounded-lg border border-transparent bg-orange-500 px-6 py-4 text-center text-xl font-medium leading-6 text-white hover:bg-orange-600"
                           aria-describedby="tier-plus"
                         >
                           Assinar
@@ -237,7 +237,7 @@ export const Pricing: React.FC = () => {
                         <div className="rounded-lg shadow-md">
                           <a
                             href="#"
-                            className="block w-full rounded-lg border border-transparent bg-white px-6 py-3 text-center text-base font-medium text-orange-600 hover:bg-gray-50"
+                            className="block w-full rounded-lg border border-transparent bg-white px-6 py-3 text-center text-base font-medium text-orange-500 hover:bg-gray-50"
                             aria-describedby="tier-pro"
                           >
                             Assinar

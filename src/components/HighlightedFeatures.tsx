@@ -1,4 +1,7 @@
-import { InboxIcon, SparklesIcon } from '@heroicons/react/24/outline'
+import {
+  AdjustmentsHorizontalIcon,
+  BoltIcon,
+} from '@heroicons/react/24/outline'
 import { Element } from 'react-scroll'
 import { Link } from './Link'
 
@@ -14,7 +17,7 @@ export const HighlightedFeatures: React.FC = () => {
             <div>
               <div>
                 <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-orange-600">
-                  <InboxIcon
+                  <AdjustmentsHorizontalIcon
                     className="h-8 w-8 text-white"
                     aria-hidden="true"
                   />
@@ -44,9 +47,10 @@ export const HighlightedFeatures: React.FC = () => {
               <blockquote>
                 <div>
                   <p className="text-base text-gray-500">
-                    &ldquo;Cras velit quis eros eget rhoncus lacus ultrices sed
-                    diam. Sit orci risus aenean curabitur donec aliquet. Mi
-                    venenatis in euismod ut.&rdquo;
+                    &ldquo;Um dos principais problemas de salões que impedem
+                    seus crescimentos é a maneira de se organizar, seja num
+                    papel ou em algum aplicativo de anotações. A Vain veio pra
+                    atacar esse problema.&rdquo;
                   </p>
                 </div>
                 <footer className="mt-3">
@@ -55,13 +59,13 @@ export const HighlightedFeatures: React.FC = () => {
                       <picture>
                         <img
                           className="h-6 w-6 rounded-full"
-                          src="https://images.unsplash.com/photo-1509783236416-c9ad59bae472?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80"
-                          alt=""
+                          src="/joao.jpg"
+                          alt="João, Co-Founder e CTO da empresa"
                         />
                       </picture>
                     </div>
                     <div className="text-base font-medium text-gray-700">
-                      Marcia Hill, Digital Marketing Manager
+                      João Melo, Co-Founder e CTO da Vain
                     </div>
                   </div>
                 </footer>
@@ -87,10 +91,7 @@ export const HighlightedFeatures: React.FC = () => {
             <div>
               <div>
                 <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-orange-600">
-                  <SparklesIcon
-                    className="h-8 w-8 text-white"
-                    aria-hidden="true"
-                  />
+                  <BoltIcon className="h-8 w-8 text-white" aria-hidden="true" />
                 </span>
               </div>
               <div className="mt-6">

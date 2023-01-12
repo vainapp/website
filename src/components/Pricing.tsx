@@ -25,14 +25,15 @@ export const Pricing: React.FC = () => {
       <div className="px-6 pt-12 lg:px-8 lg:pt-20">
         <div className="text-center">
           <h2 className="text-xl font-semibold leading-6 text-gray-600">
-            Pricing
+            Planos
           </h2>
           <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl">
-            The right price for you, whoever you are
+            O valor certo pra você, independente do tamanho do seu salão
           </p>
           <p className="mx-auto mt-3 max-w-4xl text-xl text-gray-600 sm:mt-5 sm:text-2xl">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit
-            numquam eligendi quos odit doloribus molestiae voluptatum.
+            Não importa o tamanho, temos soluções para todos! Escalável e
+            adaptável a empresas de qualquer tamanho, nós temos o que você
+            precisa para crescer seu negócio
           </p>
         </div>
       </div>

@@ -15,32 +15,32 @@ const features = [
   {
     name: 'Gerencie e acompanhe suas franquias com facilidade',
     description:
-      'You can manage phone, email and chat conversations all from a single mailbox.',
+      'Gerencie e acompanhe suas franquias, dando-lhe visibilidade e controle para garantir consistência e qualidade em todos os locais.',
   },
   {
     name: 'Agende compromissos de maneira eficiente com nossa funcionalidade de calendários e horários',
     description:
-      'You can manage phone, email and chat conversations all from a single mailbox.',
+      'Nossa funcionalidade de calendários e horários facilita que você e seus clientes agendem compromissos e acompanhem eventos futuros.',
   },
   {
     name: 'Nunca perca mais um compromisso com nossos lembretes',
     description:
-      'Find what you need with advanced filters, bulk actions, and quick views.',
+      'Nunca perca mais um compromisso com nossos lembretes automatizados, garantindo que você e seus clientes estejam sempre no horário.',
   },
   {
     name: 'Tome decisões baseadas em dados com nossos relatórios e análises',
     description:
-      'Find what you need with advanced filters, bulk actions, and quick views.',
+      'Nossa plataforma fornece relatórios detalhados e análises, dando-lhe as informações de que você precisa para tomar decisões informadas sobre seu negócio.',
   },
   {
     name: 'Melhore sua reputação e atraia novos clientes com nosso sistema de classificação baseado em avaliações',
     description:
-      'Find what you need with advanced filters, bulk actions, and quick views.',
+      'Melhore sua reputação e atraia novos clientes com o tempo, destacando seus pontos fortes e diferenciando-se de sua concorrência com nosso sistema de classificação baseado em avaliações.',
   },
   {
-    name: 'Mobile app',
+    name: 'Gestão financeira e remuneração de funcionários',
     description:
-      'Find what you need with advanced filters, bulk actions, and quick views.',
+      'Com nosso sistema de gestão financeira, você pode acompanhar e controlar o fluxo de caixa de seu negócio, além de garantir que cada funcionário seja remunerado de acordo com os serviços prestados.',
   },
 ]
 

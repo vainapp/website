@@ -5,7 +5,7 @@ export default function TermsOfUse(): JSX.Element {
     <>
       <NextSeo
         title="Termos de Uso"
-        description="Ao utilizar nossos serviços, você concorda com os termos e condições"
+        description="Ao utilizar nossos serviços, você concorda com os termos e condições."
       />
       <div className="relative overflow-hidden bg-white py-16">
         <div className="relative px-6 lg:px-8">

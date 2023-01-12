@@ -5,10 +5,10 @@ export const CTANewsletter: React.FC = () => {
         <div className="rounded-lg bg-orange-500 px-6 py-6 md:py-12 md:px-12 lg:py-16 lg:px-16 xl:flex xl:items-center">
           <div className="xl:w-0 xl:flex-1">
             <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
-              Want product news and updates?
+              Quer receber novidades sobre nossa plataforma?
             </h2>
             <p className="mt-3 max-w-3xl text-lg leading-6 text-orange-200">
-              Sign up for our newsletter to stay up to date.
+              Cadastre-se na nossa newsletter para manter-se atualizado(a).
             </p>
           </div>
           <div className="mt-8 sm:w-full sm:max-w-md xl:mt-0 xl:ml-8">
@@ -23,19 +23,22 @@ export const CTANewsletter: React.FC = () => {
                 autoComplete="email"
                 required
                 className="w-full rounded-md border-white px-5 py-3 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-orange-700"
-                placeholder="Enter your email"
+                placeholder="Informe seu endereço de e-mail"
               />
               <button
                 type="submit"
                 className="mt-3 flex w-full items-center justify-center rounded-md border border-transparent bg-orange-400 px-5 py-3 text-base font-medium text-white shadow hover:bg-orange-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-orange-700 sm:mt-0 sm:ml-3 sm:w-auto sm:flex-shrink-0"
               >
-                Notify me
+                Avisar-me
               </button>
             </form>
             <p className="mt-3 text-sm text-orange-200">
-              We care about the protection of your data. Read our{' '}
-              <a href="#" className="font-medium text-white underline">
-                Privacy Policy.
+              Nos importamos sobre a proteção dos seus dados. Leia nossa{' '}
+              <a
+                href="/privacy-policy"
+                className="font-medium text-white underline"
+              >
+                Política de Privacidade.
               </a>
             </p>
           </div>

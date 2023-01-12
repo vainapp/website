@@ -5,11 +5,11 @@ import { classNames } from '../helpers/classNames'
 
 const faqs = [
   {
-    question: "What's the best thing about Switzerland?",
+    question: 'O que é a Vain?',
     answer:
-      "I don't know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.",
+      'Somos uma plataforma que facilita o agendamento e gerenciamento de estabelecimentos focados em estética. Com a Vain, você participa de um marketplace com direito a gerenciar toda a sua agenda, seus serviços, funcionários, franquias, clientes, gerar relatórios e muito mais. Tudo isso de forma simples e intuitiva.',
   },
-  // More questions...
+  // TODO: Add more questions
 ]
 
 export const FAQ: React.FC = () => {
@@ -18,7 +18,7 @@ export const FAQ: React.FC = () => {
       <div className="mx-auto max-w-7xl py-12 px-6 sm:py-16 lg:px-8">
         <div className="mx-auto max-w-3xl divide-y-2 divide-gray-200">
           <h2 className="text-center text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-            Frequently asked questions
+            Perguntas frequentemente feitas
           </h2>
           <dl className="mt-6 space-y-6 divide-y divide-gray-200">
             {faqs.map((faq) => (

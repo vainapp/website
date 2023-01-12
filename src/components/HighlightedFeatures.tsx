@@ -8,7 +8,7 @@ export const HighlightedFeatures: React.FC = () => {
           <div className="mx-auto max-w-xl px-6 lg:mx-0 lg:max-w-none lg:py-16 lg:px-0">
             <div>
               <div>
-                <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-600">
+                <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-orange-600">
                   <InboxIcon
                     className="h-8 w-8 text-white"
                     aria-hidden="true"
@@ -28,7 +28,7 @@ export const HighlightedFeatures: React.FC = () => {
                 <div className="mt-6">
                   <a
                     href="#"
-                    className="inline-flex rounded-lg bg-indigo-600 px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-indigo-600 hover:bg-indigo-700 hover:ring-indigo-700"
+                    className="inline-flex rounded-lg bg-orange-600 px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-orange-600 hover:bg-orange-700 hover:ring-orange-700"
                   >
                     Get started
                   </a>
@@ -81,7 +81,7 @@ export const HighlightedFeatures: React.FC = () => {
           <div className="mx-auto max-w-xl px-6 lg:col-start-2 lg:mx-0 lg:max-w-none lg:py-32 lg:px-0">
             <div>
               <div>
-                <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-600">
+                <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-orange-600">
                   <SparklesIcon
                     className="h-8 w-8 text-white"
                     aria-hidden="true"
@@ -101,7 +101,7 @@ export const HighlightedFeatures: React.FC = () => {
                 <div className="mt-6">
                   <a
                     href="#"
-                    className="inline-flex rounded-lg bg-indigo-600 px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-indigo-600 hover:bg-indigo-700 hover:ring-indigo-700"
+                    className="inline-flex rounded-lg bg-orange-600 px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-orange-600 hover:bg-orange-700 hover:ring-orange-700"
                   >
                     Get started
                   </a>

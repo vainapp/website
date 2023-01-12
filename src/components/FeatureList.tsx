@@ -48,7 +48,7 @@ export const FeatureList: React.FC = () => {
     <div className="bg-white">
       <div className="mx-auto max-w-7xl py-24 px-6 sm:py-32 lg:grid lg:grid-cols-3 lg:gap-x-12 lg:px-8 lg:py-40">
         <div>
-          <h2 className="text-lg font-semibold leading-8 tracking-tight text-indigo-600">
+          <h2 className="text-lg font-semibold leading-8 tracking-tight text-orange-600">
             Everything you need
           </h2>
           <p className="mt-2 text-4xl font-bold tracking-tight text-gray-900">
@@ -66,7 +66,7 @@ export const FeatureList: React.FC = () => {
               <div key={feature.name} className="relative">
                 <dt>
                   <CheckIcon
-                    className="absolute mt-1 h-6 w-6 text-indigo-600"
+                    className="absolute mt-1 h-6 w-6 text-orange-600"
                     aria-hidden="true"
                   />
                   <p className="ml-10 text-lg font-semibold leading-8 text-gray-900">

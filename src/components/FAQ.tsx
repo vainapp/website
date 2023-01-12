@@ -1,23 +1,9 @@
 import { Disclosure } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/24/outline'
+import { Element } from 'react-scroll'
 import { classNames } from '../helpers/classNames'
 
 const faqs = [
-  {
-    question: "What's the best thing about Switzerland?",
-    answer:
-      "I don't know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.",
-  },
-  {
-    question: "What's the best thing about Switzerland?",
-    answer:
-      "I don't know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.",
-  },
-  {
-    question: "What's the best thing about Switzerland?",
-    answer:
-      "I don't know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.",
-  },
   {
     question: "What's the best thing about Switzerland?",
     answer:
@@ -28,7 +14,7 @@ const faqs = [
 
 export const FAQ: React.FC = () => {
   return (
-    <div className="bg-white">
+    <Element name="faq" className="bg-white">
       <div className="mx-auto max-w-7xl py-12 px-6 sm:py-16 lg:px-8">
         <div className="mx-auto max-w-3xl divide-y-2 divide-gray-200">
           <h2 className="text-center text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
@@ -65,6 +51,6 @@ export const FAQ: React.FC = () => {
           </dl>
         </div>
       </div>
-    </div>
+    </Element>
   )
 }

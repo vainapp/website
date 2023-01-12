@@ -1,29 +1,32 @@
-import Link from 'next/link'
 import { ChevronRightIcon } from '@heroicons/react/20/solid'
 import {
   QuestionMarkCircleIcon,
   SparklesIcon,
   DocumentDuplicateIcon,
 } from '@heroicons/react/24/outline'
+import { Link } from '../components/Link'
 
 const links = [
   {
     title: 'Soluções',
     description: 'Todas as funcionalidades do Vain',
     icon: SparklesIcon,
-    path: '/#features',
+    path: '/',
+    anchor: 'highlighted-features',
   },
   {
     title: 'Planos',
     description: 'Planos e preços para todos os tamanhos de negócio',
     icon: DocumentDuplicateIcon,
-    path: '/#pricing',
+    path: '/',
+    anchor: 'pricing',
   },
   {
     title: 'FAQ',
     description: 'Perguntas frequentes sobre a plataforma',
     icon: QuestionMarkCircleIcon,
-    path: '/#faq',
+    path: '/',
+    anchor: 'faq',
   },
 ]
 
@@ -74,7 +77,11 @@ export default function NotFound(): JSX.Element {
                   <div className="min-w-0 flex-1">
                     <h3 className="text-base font-medium text-gray-900">
                       <span className="rounded-sm focus-within:ring-2 focus-within:ring-orange-500 focus-within:ring-offset-2">
-                        <Link href={link.path} className="focus:outline-none">
+                        <Link
+                          href={link.path}
+                          anchor={link.anchor}
+                          className="focus:outline-none"
+                        >
                           <span
                             className="absolute inset-0"
                             aria-hidden="true"

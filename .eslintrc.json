@@ -23,6 +23,7 @@
   ],
   "rules": {
       "prettier/prettier": "error",
-      "@typescript-eslint/triple-slash-reference": "off"
+      "@typescript-eslint/triple-slash-reference": "off",
+      "@typescript-eslint/consistent-type-assertions": "off"
   }
 }

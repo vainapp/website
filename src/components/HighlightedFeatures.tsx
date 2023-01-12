@@ -1,8 +1,12 @@
 import { InboxIcon, SparklesIcon } from '@heroicons/react/24/outline'
+import { Element } from 'react-scroll'
 
 export const HighlightedFeatures: React.FC = () => {
   return (
-    <div className="relative overflow-hidden bg-transparent pt-16 pb-32">
+    <Element
+      name="highlighted-features"
+      className="relative overflow-hidden bg-transparent pt-16 pb-32"
+    >
       <div className="relative">
         <div className="lg:mx-auto lg:grid lg:max-w-7xl lg:grid-flow-col-dense lg:grid-cols-2 lg:gap-24 lg:px-8">
           <div className="mx-auto max-w-xl px-6 lg:mx-0 lg:max-w-none lg:py-16 lg:px-0">
@@ -122,6 +126,6 @@ export const HighlightedFeatures: React.FC = () => {
           </div>
         </div>
       </div>
-    </div>
+    </Element>
   )
 }

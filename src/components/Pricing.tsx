@@ -1,4 +1,5 @@
 import { CheckIcon } from '@heroicons/react/24/outline'
+import { Element } from 'react-scroll'
 
 const hobbyFeatures = [
   'Pariatur quod similique',
@@ -20,7 +21,7 @@ const growthFeatures = [
 
 export const Pricing: React.FC = () => {
   return (
-    <div className="bg-white">
+    <Element name="pricing" className="bg-white">
       <div className="px-6 pt-12 lg:px-8 lg:pt-20">
         <div className="text-center">
           <h2 className="text-xl font-semibold leading-6 text-gray-600">
@@ -219,6 +220,6 @@ export const Pricing: React.FC = () => {
           </div>
         </div>
       </div>
-    </div>
+    </Element>
   )
 }

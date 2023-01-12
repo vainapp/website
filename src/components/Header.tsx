@@ -12,6 +12,7 @@ import {
 } from '@heroicons/react/24/outline'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import { classNames } from '../helpers/classNames'
+import { Link } from './Link'
 
 const solutions = [
   {
@@ -183,18 +184,20 @@ export const Header: React.FC = () => {
             )}
           </Popover>
 
-          <a
-            href="#"
-            className="text-base font-medium text-gray-700 hover:text-gray-900"
+          <Link
+            href="/"
+            anchor="pricing"
+            className="text-base font-medium text-gray-700 hover:text-gray-900 hover:cursor-pointer"
           >
-            Pricing
-          </a>
-          <a
-            href="#"
-            className="text-base font-medium text-gray-700 hover:text-gray-900"
+            Planos
+          </Link>
+          <Link
+            href="/"
+            anchor="faq"
+            className="text-base font-medium text-gray-700 hover:text-gray-900 hover:cursor-pointer"
           >
-            Docs
-          </a>
+            Dúvidas
+          </Link>
 
           <Popover className="relative">
             {({ open }) => (

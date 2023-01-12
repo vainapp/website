@@ -1,4 +1,5 @@
 import { CheckIcon } from '@heroicons/react/24/outline'
+import { Element } from 'react-scroll'
 
 const features = [
   {
@@ -45,7 +46,7 @@ const features = [
 
 export const FeatureList: React.FC = () => {
   return (
-    <div className="bg-white">
+    <Element name="feature-list" className="bg-white">
       <div className="mx-auto max-w-7xl py-24 px-6 sm:py-32 lg:grid lg:grid-cols-3 lg:gap-x-12 lg:px-8 lg:py-40">
         <div>
           <h2 className="text-lg font-semibold leading-8 tracking-tight text-orange-600">
@@ -81,6 +82,6 @@ export const FeatureList: React.FC = () => {
           </dl>
         </div>
       </div>
-    </div>
+    </Element>
   )
 }

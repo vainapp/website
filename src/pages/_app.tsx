@@ -6,14 +6,15 @@ import { Footer } from '../components/Footer'
 
 import '../styles/globals.css'
 import { SEOConfig } from '../seo.config'
+import { ScrollToAnchorProvider } from '../contexts/ScrollToAnchorContext'
 
 export default function App({ Component, pageProps }: AppProps): JSX.Element {
   return (
-    <>
+    <ScrollToAnchorProvider>
       <DefaultSeo {...SEOConfig} />
       <Header />
       <Component {...pageProps} />
       <Footer />
-    </>
+    </ScrollToAnchorProvider>
   )
 }

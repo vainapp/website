@@ -1,5 +1,6 @@
 import { MegaphoneIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { useState } from 'react'
+
 import { Link } from './Link'
 
 export const FloatingBottomBanner: React.FC = () => {

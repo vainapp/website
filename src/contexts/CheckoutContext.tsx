@@ -1,4 +1,5 @@
 import { createContext, ReactNode, useContext, useState } from 'react'
+
 import { Plan } from '../constants/plans'
 
 type Interval = 'monthly' | 'yearly'

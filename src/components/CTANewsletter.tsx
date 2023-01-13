@@ -1,3 +1,5 @@
+import { Link } from './Link'
+
 export const CTANewsletter: React.FC = () => {
   return (
     <div className="bg-white">
@@ -34,12 +36,12 @@ export const CTANewsletter: React.FC = () => {
             </form>
             <p className="mt-3 text-sm text-orange-200">
               Nos importamos sobre a proteção dos seus dados. Leia nossa{' '}
-              <a
+              <Link
                 href="/privacy-policy"
                 className="font-medium text-white underline"
               >
                 Política de Privacidade.
-              </a>
+              </Link>
             </p>
           </div>
         </div>

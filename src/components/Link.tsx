@@ -1,4 +1,5 @@
 import NextLink, { LinkProps as NextLinkProps } from 'next/link'
+
 import { useScrollToAnchor } from '../contexts/ScrollToAnchorContext'
 
 type ForwardNextLinkProps = Omit<

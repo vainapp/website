@@ -3,6 +3,7 @@ import {
   BoltIcon,
 } from '@heroicons/react/24/outline'
 import { Element } from 'react-scroll'
+
 import { Link } from './Link'
 
 export const HighlightedFeatures: React.FC = () => {

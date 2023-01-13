@@ -1,16 +1,17 @@
-import { FloatingBottomBanner } from '../components/FloatingBottomBanner'
+import { useEffect } from 'react'
+import { scroller } from 'react-scroll'
+
 import { CTAFreeTrial } from '../components/CTAFreeTrial'
-import { FeatureList } from '../components/FeatureList'
-import { Hero } from '../components/Hero'
-import { HighlightedFeatures } from '../components/HighlightedFeatures'
-import { Stats } from '../components/Stats'
 import { CTANewsletter } from '../components/CTANewsletter'
 import { FAQ } from '../components/FAQ'
+import { FeatureList } from '../components/FeatureList'
+import { FloatingBottomBanner } from '../components/FloatingBottomBanner'
+import { Hero } from '../components/Hero'
+import { HighlightedFeatures } from '../components/HighlightedFeatures'
 import { Pricing } from '../components/Pricing'
-import { useEffect } from 'react'
-import { useScrollToAnchor } from '../contexts/ScrollToAnchorContext'
-import { scroller } from 'react-scroll'
+import { Stats } from '../components/Stats'
 import { SCROLL_SETTINGS } from '../constants/scroll'
+import { useScrollToAnchor } from '../contexts/ScrollToAnchorContext'
 
 export default function Home(): JSX.Element {
   const { setElementName, elementName } = useScrollToAnchor()

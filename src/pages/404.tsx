@@ -5,6 +5,7 @@ import {
   DocumentDuplicateIcon,
 } from '@heroicons/react/24/outline'
 import { NextSeo } from 'next-seo'
+
 import { Link } from '../components/Link'
 
 const links = [

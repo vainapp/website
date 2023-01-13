@@ -1,5 +1,6 @@
 import { CheckIcon } from '@heroicons/react/24/outline'
 import { Element } from 'react-scroll'
+
 import { Link } from './Link'
 
 const features = [

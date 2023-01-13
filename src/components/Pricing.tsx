@@ -1,8 +1,10 @@
 import { CheckIcon } from '@heroicons/react/24/outline'
 import { Element } from 'react-scroll'
+
 import { basicPlan, Plan, plusPlan, proPlan } from '../constants/plans'
 import { useCheckout } from '../contexts/CheckoutContext'
 import { classNames } from '../helpers/classNames'
+
 import { Link } from './Link'
 
 export const Pricing: React.FC = () => {

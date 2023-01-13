@@ -1,5 +1,5 @@
-import { Fragment } from 'react'
 import { Popover, Transition } from '@headlessui/react'
+import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import {
   AdjustmentsHorizontalIcon,
   CalendarIcon,
@@ -10,10 +10,12 @@ import {
   ChartBarIcon,
   XMarkIcon,
 } from '@heroicons/react/24/outline'
-import { ChevronDownIcon } from '@heroicons/react/20/solid'
-import { classNames } from '../helpers/classNames'
-import { Link } from './Link'
+import { Fragment } from 'react'
+
 import { URLS } from '../constants/urls'
+import { classNames } from '../helpers/classNames'
+
+import { Link } from './Link'
 
 const solutions = [
   {

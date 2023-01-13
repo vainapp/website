@@ -1,4 +1,4 @@
-import { DefaultSeoProps } from 'next-seo'
+import { DefaultSeoProps } from 'next-seo/lib'
 
 const DEFAULT_TITLE = 'Vain | Leve a estética para o próximo nível'
 const DEFAULT_DESCRIPTION = ''

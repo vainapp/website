@@ -5,6 +5,7 @@
   },
   "extends": [
     "plugin:react/recommended",
+    "plugin:import/recommended",
     "next",
     "standard-with-typescript",
     "prettier"
@@ -24,6 +25,15 @@
   "rules": {
       "prettier/prettier": "error",
       "@typescript-eslint/triple-slash-reference": "off",
-      "@typescript-eslint/consistent-type-assertions": "off"
+      "@typescript-eslint/consistent-type-assertions": "off",
+      "import/order": [
+        "error",
+        {
+          "newlines-between": "always",
+          "alphabetize": {
+            "order": "asc"
+          }
+        }
+      ]
   }
 }

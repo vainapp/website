@@ -200,12 +200,6 @@ export const Header: React.FC = () => {
             Dúvidas
           </Link>
           <Link
-            href="/about"
-            className="text-base font-medium text-gray-700 hover:text-gray-900 hover:cursor-pointer"
-          >
-            Sobre nós
-          </Link>
-          <Link
             href="/contact"
             className="text-base font-medium text-gray-700 hover:text-gray-900 hover:cursor-pointer"
           >
@@ -337,26 +331,28 @@ export const Header: React.FC = () => {
             </div>
             <div className="py-6 px-5">
               <div className="grid grid-cols-2 gap-4">
-                <a
-                  href="#"
+                <Link
+                  href="/"
+                  anchor="pricing"
                   className="text-base font-medium text-gray-900 hover:text-gray-700"
                 >
-                  Pricing
-                </a>
+                  Planos
+                </Link>
 
-                <a
-                  href="#"
+                <Link
+                  href="/"
+                  anchor="faq"
                   className="text-base font-medium text-gray-900 hover:text-gray-700"
                 >
-                  Docs
-                </a>
+                  Dúvidas
+                </Link>
 
-                <a
-                  href="#"
+                <Link
+                  href="/contact"
                   className="text-base font-medium text-gray-900 hover:text-gray-700"
                 >
-                  Enterprise
-                </a>
+                  Entre em contato
+                </Link>
                 {resources.map((resource) => (
                   <Link
                     key={resource.name}
@@ -368,17 +364,22 @@ export const Header: React.FC = () => {
                 ))}
               </div>
               <div className="mt-6">
-                <a
-                  href="#"
+                <Link
+                  href="/"
+                  anchor="pricing"
                   className="flex w-full items-center justify-center rounded-md border border-transparent bg-orange-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-orange-700"
                 >
-                  Sign up
-                </a>
+                  Criar uma conta
+                </Link>
                 <p className="mt-6 text-center text-base font-medium text-gray-500">
-                  Existing customer?{' '}
-                  <a href="#" className="text-orange-600 hover:text-orange-500">
-                    Sign in
-                  </a>
+                  Já tem uma conta?{' '}
+                  <Link
+                    href={URLS.DASHBOARD_URL}
+                    target="_blank"
+                    className="text-orange-600 hover:text-orange-500"
+                  >
+                    Entrar
+                  </Link>
                 </p>
               </div>
             </div>

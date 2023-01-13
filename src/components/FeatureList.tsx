@@ -1,5 +1,6 @@
 import { CheckIcon } from '@heroicons/react/24/outline'
 import { Element } from 'react-scroll'
+import { Link } from './Link'
 
 const features = [
   {
@@ -59,6 +60,15 @@ export const FeatureList: React.FC = () => {
             Foque no que realmente importa: seus clientes. Nós te ajudamos a
             cuidar do resto.
           </p>
+          <div className="mt-6">
+            <Link
+              href="/"
+              anchor="pricing"
+              className="inline-flex rounded-lg bg-orange-500 px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-orange-600 hover:bg-orange-600 hover:ring-orange-600"
+            >
+              Começar
+            </Link>
+          </div>
         </div>
         <div className="mt-20 lg:col-span-2 lg:mt-0">
           <dl className="grid grid-cols-1 gap-12 sm:grid-flow-col sm:grid-cols-2 sm:grid-rows-4">

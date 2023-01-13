@@ -1,16 +1,19 @@
 import { CheckIcon } from '@heroicons/react/24/outline'
-import { useState } from 'react'
 import { Element } from 'react-scroll'
-import { basicPlan, plusPlan, proPlan } from '../constants/plans'
+import { basicPlan, Plan, plusPlan, proPlan } from '../constants/plans'
+import { useCheckout } from '../contexts/CheckoutContext'
 import { classNames } from '../helpers/classNames'
+import { Link } from './Link'
 
 export const Pricing: React.FC = () => {
-  const [intervalFilter, setIntervalFilter] = useState<'monthly' | 'yearly'>(
-    'monthly'
-  )
+  const { setPlan, intervalFilter, setIntervalFilter } = useCheckout()
   const intervalFilterLabel = intervalFilter === 'monthly' ? '/mês' : '/ano'
   const intervalPriceKey =
     intervalFilter === 'monthly' ? 'monthly_price' : 'yearly_price'
+
+  const handlePlanSelection = (plan: Plan): void => {
+    setPlan(plan)
+  }
 
   return (
     <Element name="pricing" className="bg-white">
@@ -112,13 +115,16 @@ export const Pricing: React.FC = () => {
                       </ul>
                       <div className="mt-8">
                         <div className="rounded-lg shadow-md">
-                          <a
-                            href="#"
+                          <Link
+                            href="/sign-up"
+                            onClick={() => {
+                              handlePlanSelection(basicPlan)
+                            }}
                             className="block w-full rounded-lg border border-transparent bg-white px-6 py-3 text-center text-base font-medium text-orange-500 hover:bg-gray-50"
                             aria-describedby="tier-basic"
                           >
                             Inicie seu período de testes
-                          </a>
+                          </Link>
                         </div>
                       </div>
                     </div>
@@ -179,13 +185,16 @@ export const Pricing: React.FC = () => {
                     </ul>
                     <div className="mt-10">
                       <div className="rounded-lg shadow-md">
-                        <a
-                          href="#"
+                        <Link
+                          href="/sign-up"
+                          onClick={() => {
+                            handlePlanSelection(plusPlan)
+                          }}
                           className="block w-full rounded-lg border border-transparent bg-orange-500 px-6 py-4 text-center text-xl font-medium leading-6 text-white hover:bg-orange-600"
                           aria-describedby="tier-plus"
                         >
                           Assinar
-                        </a>
+                        </Link>
                       </div>
                     </div>
                   </div>
@@ -235,13 +244,16 @@ export const Pricing: React.FC = () => {
                       </ul>
                       <div className="mt-8">
                         <div className="rounded-lg shadow-md">
-                          <a
-                            href="#"
+                          <Link
+                            href="/sign-up"
+                            onClick={() => {
+                              handlePlanSelection(proPlan)
+                            }}
                             className="block w-full rounded-lg border border-transparent bg-white px-6 py-3 text-center text-base font-medium text-orange-500 hover:bg-gray-50"
                             aria-describedby="tier-pro"
                           >
                             Assinar
-                          </a>
+                          </Link>
                         </div>
                       </div>
                     </div>

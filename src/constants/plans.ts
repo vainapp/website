@@ -1,4 +1,4 @@
-interface Plan {
+export interface Plan {
   name: string
   features: string[]
   monthly_price: {

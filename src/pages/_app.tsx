@@ -1,25 +1,20 @@
 import type { AppProps } from 'next/app'
-import { MantineProvider } from '@mantine/core'
-import Head from 'next/head'
-import Footer from '../components/Footer'
-import Header from '../components/Header'
-import theme from '../styles/theme'
+import { DefaultSeo } from 'next-seo'
 
-export default function App({ Component, pageProps }: AppProps) {
+import { Header } from '../components/Header'
+import { Footer } from '../components/Footer'
+
+import '../styles/globals.css'
+import { SEOConfig } from '../seo.config'
+import { ScrollToAnchorProvider } from '../contexts/ScrollToAnchorContext'
+
+export default function App({ Component, pageProps }: AppProps): JSX.Element {
   return (
-    <>
-      <Head>
-        <title>Grupo C</title>
-        <meta
-          name="viewport"
-          content="minimum-scale=1, initial-scale=1, width=device-width"
-        />
-      </Head>
-      <MantineProvider withGlobalStyles withNormalizeCSS theme={theme}>
-        <Header />
-        <Component {...pageProps} />
-        <Footer />
-      </MantineProvider>
-    </>
+    <ScrollToAnchorProvider>
+      <DefaultSeo {...SEOConfig} />
+      <Header />
+      <Component {...pageProps} />
+      <Footer />
+    </ScrollToAnchorProvider>
   )
 }

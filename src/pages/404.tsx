@@ -10,7 +10,7 @@ import { Link } from '../components/Link'
 const links = [
   {
     title: 'Soluções',
-    description: 'Todas as funcionalidades do Vain',
+    description: 'Todas as funcionalidades da Vain',
     icon: SparklesIcon,
     path: '/',
     anchor: 'highlighted-features',

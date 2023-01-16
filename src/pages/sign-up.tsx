@@ -1,10 +1,15 @@
+import { XCircleIcon } from '@heroicons/react/20/solid'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { useState } from 'react'
 import { FormProvider, useForm } from 'react-hook-form'
 import { z } from 'zod'
 import zxcvbn from 'zxcvbn'
 
+import { Link } from '../components/Link'
 import { PasswordStrength } from '../components/PasswordStrength'
+import { useCheckout } from '../contexts/CheckoutContext'
 import { classNames } from '../helpers/classNames'
+import { signUp, preSignUp } from '../services/signUpService'
 
 const schema = z
   .object({
@@ -49,12 +54,66 @@ const schema = z
 export type SignUpForm = z.infer<typeof schema>
 
 export default function SignUp(): JSX.Element {
+  const [isLoading, setIsLoading] = useState(false)
   const form = useForm<SignUpForm>({
+    mode: 'onBlur',
+    reValidateMode: 'onBlur',
     resolver: zodResolver(schema),
   })
+  const { plan, intervalFilter } = useCheckout()
 
-  const handleSubmit = (data: SignUpForm): void => {
-    console.log(data)
+  const priceId =
+    plan !== null
+      ? plan[intervalFilter === 'monthly' ? 'monthly_price' : 'yearly_price'].id
+      : null
+
+  const handlePasswordFocus = async (
+    event: React.FocusEvent<HTMLInputElement>
+  ): Promise<any> => {
+    if (
+      // eslint-disable-next-line eqeqeq
+      form.formState.dirtyFields.email === true &&
+      form.formState.errors.email?.message == null &&
+      priceId != null
+    ) {
+      setIsLoading(true)
+
+      try {
+        const response = await preSignUp({
+          email: form.getValues('email'),
+          price_id: priceId,
+        })
+        console.log(response) // TODO understand what to do with this response
+      } catch (error) {
+        console.error(error)
+      } finally {
+        setIsLoading(false)
+      }
+    }
+
+    return await form.register('email').onBlur(event)
+  }
+
+  const handleSubmit = async (data: SignUpForm): Promise<void> => {
+    if (priceId == null) return
+
+    setIsLoading(true)
+
+    try {
+      await signUp({
+        email: data.email,
+        password: data.password,
+        password_confirmation: data.passwordConfirmation,
+        company_name: data.companyName,
+        phone_number: data.phoneNumber,
+        name: data.name,
+        price_id: priceId,
+      })
+    } catch (error) {
+      console.error(error) // TODO add snackbar here
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   return (
@@ -73,6 +132,27 @@ export default function SignUp(): JSX.Element {
       <div className="relative py-16 px-6 sm:py-24 lg:mx-auto lg:grid lg:max-w-7xl lg:grid-cols-2 lg:px-8 lg:py-32">
         <div className="lg:pr-8">
           <div className="mx-auto max-w-md sm:max-w-lg lg:mx-0">
+            {plan === null && (
+              <Link href="/" anchor="pricing">
+                <div className="rounded-md bg-red-50 p-4 mb-6 sm:mb-5">
+                  <div className="flex">
+                    <div className="flex-shrink-0">
+                      <XCircleIcon
+                        className="h-5 w-5 text-red-400"
+                        aria-hidden="true"
+                      />
+                    </div>
+                    <div className="ml-3">
+                      <h3 className="text-sm font-medium text-red-800">
+                        Você precisa escolher um plano para criar uma conta.
+                        Clique aqui para escolher um plano.
+                      </h3>
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            )}
+
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
               Criar uma conta
             </h2>
@@ -92,6 +172,7 @@ export default function SignUp(): JSX.Element {
                 </label>
                 <div className="mt-1">
                   <input
+                    disabled={plan === null || isLoading}
                     id="email"
                     type="email"
                     autoComplete="email"
@@ -106,7 +187,7 @@ export default function SignUp(): JSX.Element {
                       form.formState.errors.email?.message != null
                         ? 'border-red-300 text-red-900 focus:border-red-500 focus:ring-red-500'
                         : 'border-gray-300 focus:border-orange-500 focus:ring-orange-500',
-                      'block w-full rounded-md shadow-sm sm:text-sm'
+                      'block w-full rounded-md shadow-sm sm:text-sm disabled:cursor-not-allowed disabled:border-gray-200 disabled:bg-gray-50 disabled:text-gray-500'
                     )}
                   />
                   {form.formState.errors.email?.message != null && (
@@ -125,10 +206,12 @@ export default function SignUp(): JSX.Element {
                 </label>
                 <div className="mt-1">
                   <input
+                    disabled={plan === null || isLoading}
                     id="password"
                     type="password"
                     autoComplete="password"
                     {...form.register('password')}
+                    onFocus={handlePasswordFocus}
                     aria-invalid={
                       form.formState.errors.password?.message != null
                     }
@@ -141,12 +224,14 @@ export default function SignUp(): JSX.Element {
                       form.formState.errors.password?.message != null
                         ? 'border-red-300 text-red-900 focus:border-red-500 focus:ring-red-500'
                         : 'border-gray-300 focus:border-orange-500 focus:ring-orange-500',
-                      'block w-full rounded-md shadow-sm sm:text-sm'
+                      'block w-full rounded-md shadow-sm sm:text-sm disabled:cursor-not-allowed disabled:border-gray-200 disabled:bg-gray-50 disabled:text-gray-500'
                     )}
                   />
-                  <FormProvider {...form}>
-                    <PasswordStrength />
-                  </FormProvider>
+                  {plan !== null && (
+                    <FormProvider {...form}>
+                      <PasswordStrength />
+                    </FormProvider>
+                  )}
                   {form.formState.errors.password?.message != null && (
                     <p
                       className="mt-2 text-sm text-red-600"
@@ -166,6 +251,7 @@ export default function SignUp(): JSX.Element {
                 </label>
                 <div className="mt-1">
                   <input
+                    disabled={plan === null || isLoading}
                     id="password-confirmation"
                     type="password"
                     autoComplete="password"
@@ -184,7 +270,7 @@ export default function SignUp(): JSX.Element {
                       form.formState.errors.passwordConfirmation?.message !=
                         null
                         ? 'border-red-300 text-red-900 focus:border-red-500 focus:ring-red-500'
-                        : 'border-gray-300 focus:border-orange-500 focus:ring-orange-500',
+                        : 'border-gray-300 focus:border-orange-500 focus:ring-orange-500 disabled:cursor-not-allowed disabled:border-gray-200 disabled:bg-gray-50 disabled:text-gray-500',
                       'block w-full rounded-md shadow-sm sm:text-sm'
                     )}
                   />
@@ -208,6 +294,7 @@ export default function SignUp(): JSX.Element {
                 </label>
                 <div className="mt-1">
                   <input
+                    disabled={plan === null || isLoading}
                     id="name"
                     type="text"
                     autoComplete="name"
@@ -224,7 +311,7 @@ export default function SignUp(): JSX.Element {
                       form.formState.errors.companyName?.message != null
                         ? 'border-red-300 text-red-900 focus:border-red-500 focus:ring-red-500'
                         : 'border-gray-300 focus:border-orange-500 focus:ring-orange-500',
-                      'block w-full rounded-md shadow-sm sm:text-sm'
+                      'block w-full rounded-md shadow-sm sm:text-sm disabled:cursor-not-allowed disabled:border-gray-200 disabled:bg-gray-50 disabled:text-gray-500'
                     )}
                   />
                   {form.formState.errors.name?.message != null && (
@@ -243,6 +330,7 @@ export default function SignUp(): JSX.Element {
                 </label>
                 <div className="mt-1">
                   <input
+                    disabled={plan === null || isLoading}
                     type="text"
                     id="company-name"
                     autoComplete="organization"
@@ -259,7 +347,7 @@ export default function SignUp(): JSX.Element {
                       form.formState.errors.companyName?.message != null
                         ? 'border-red-300 text-red-900 focus:border-red-500 focus:ring-red-500'
                         : 'border-gray-300 focus:border-orange-500 focus:ring-orange-500',
-                      'block w-full rounded-md shadow-sm sm:text-sm'
+                      'block w-full rounded-md shadow-sm sm:text-sm disabled:cursor-not-allowed disabled:border-gray-200 disabled:bg-gray-50 disabled:text-gray-500'
                     )}
                   />
                   {form.formState.errors.companyName?.message != null && (
@@ -284,6 +372,7 @@ export default function SignUp(): JSX.Element {
                     +55
                   </span>
                   <input
+                    disabled={plan === null || isLoading}
                     type="text"
                     id="phone-number"
                     {...form.register('phoneNumber')}
@@ -299,7 +388,7 @@ export default function SignUp(): JSX.Element {
                       form.formState.errors.companyName?.message != null
                         ? 'border-red-300 text-red-900 focus:border-red-500 focus:ring-red-500'
                         : 'border-gray-300 focus:border-orange-500 focus:ring-orange-500',
-                      'block w-full min-w-0 flex-1 rounded-none rounded-r-md shadow-sm sm:text-sm px-3 py-2'
+                      'block w-full min-w-0 flex-1 rounded-none rounded-r-md shadow-sm sm:text-sm px-3 py-2 disabled:cursor-not-allowed disabled:border-gray-200 disabled:bg-gray-50 disabled:text-gray-500'
                     )}
                     placeholder="11963005536"
                   />
@@ -316,7 +405,8 @@ export default function SignUp(): JSX.Element {
               <div className="text-right sm:col-span-2">
                 <button
                   type="submit"
-                  className="inline-flex items-center rounded-md border border-transparent bg-orange-500 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
+                  disabled={plan === null || isLoading}
+                  className="inline-flex items-center rounded-md border border-transparent bg-orange-500 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 disabled:cursor-not-allowed disabled:border-gray-200 disabled:bg-gray-50 disabled:text-gray-500"
                 >
                   Criar minha conta
                 </button>

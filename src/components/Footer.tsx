@@ -101,7 +101,7 @@ export const Footer: React.FC = () => {
                 <Link
                   key={item.name}
                   href={item.href}
-                  target="_blank"
+                  target={item.href.startsWith('http') ? '_blank' : '_self'}
                   className="text-gray-400 hover:text-gray-500"
                 >
                   <span className="sr-only">{item.name}</span>
@@ -122,6 +122,9 @@ export const Footer: React.FC = () => {
                       <Link
                         href={item.href}
                         anchor={item.anchor}
+                        target={
+                          item.href.startsWith('http') ? '_blank' : '_self'
+                        }
                         className="text-sm leading-6 text-gray-600 hover:text-gray-900"
                       >
                         {item.name}
@@ -140,6 +143,9 @@ export const Footer: React.FC = () => {
                       <Link
                         href={item.href}
                         anchor={item.anchor}
+                        target={
+                          item.href.startsWith('http') ? '_blank' : '_self'
+                        }
                         className="text-sm leading-6 text-gray-600 hover:text-gray-900"
                       >
                         {item.name}
@@ -159,6 +165,9 @@ export const Footer: React.FC = () => {
                     <li key={item.name}>
                       <Link
                         href={item.href}
+                        target={
+                          item.href.startsWith('http') ? '_blank' : '_self'
+                        }
                         className="text-sm leading-6 text-gray-600 hover:text-gray-900"
                       >
                         {item.name}
@@ -176,6 +185,9 @@ export const Footer: React.FC = () => {
                     <li key={item.name}>
                       <Link
                         href={item.href}
+                        target={
+                          item.href.startsWith('http') ? '_blank' : '_self'
+                        }
                         className="text-sm leading-6 text-gray-600 hover:text-gray-900"
                       >
                         {item.name}

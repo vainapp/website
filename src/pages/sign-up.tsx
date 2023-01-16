@@ -1,4 +1,62 @@
+import { zodResolver } from '@hookform/resolvers/zod'
+import { FormProvider, useForm } from 'react-hook-form'
+import { z } from 'zod'
+import zxcvbn from 'zxcvbn'
+
+import { PasswordStrength } from '../components/PasswordStrength'
+import { classNames } from '../helpers/classNames'
+
+const schema = z
+  .object({
+    email: z.string().trim().email('Informe um endereço de e-mail válido.'),
+    password: z
+      .string()
+      .trim()
+      .min(6, 'A senha deve ter no mínimo 6 caracteres.'),
+    passwordConfirmation: z.string().trim(),
+    name: z.string().trim().min(1, 'Informe seu nome.'),
+    companyName: z.string().trim().min(1, 'Informe o nome da empresa.'),
+    phoneNumber: z
+      .string()
+      .trim()
+      .regex(/\d+/g, 'Apenas números são permitidos.')
+      .min(10, 'Informe um número de telefone válido.'),
+  })
+  .superRefine((shape, context) => {
+    const { password, passwordConfirmation } = shape
+
+    if (password.length > 0) {
+      const { score } = zxcvbn(password)
+
+      if (score < 3) {
+        context.addIssue({
+          path: ['password'],
+          code: z.ZodIssueCode.custom,
+          message: 'A senha deve ser mais forte.',
+        })
+      }
+    }
+
+    if (password !== passwordConfirmation) {
+      context.addIssue({
+        path: ['passwordConfirmation'],
+        code: z.ZodIssueCode.custom,
+        message: 'A confirmação de senha não corresponde à senha informada.',
+      })
+    }
+  })
+
+export type SignUpForm = z.infer<typeof schema>
+
 export default function SignUp(): JSX.Element {
+  const form = useForm<SignUpForm>({
+    resolver: zodResolver(schema),
+  })
+
+  const handleSubmit = (data: SignUpForm): void => {
+    console.log(data)
+  }
+
   return (
     <div className="relative bg-white">
       <div className="lg:absolute lg:inset-0">
@@ -22,8 +80,7 @@ export default function SignUp(): JSX.Element {
               Crie sua conta agora e leve o seu salão para o próximo nível.
             </p>
             <form
-              action="#"
-              method="POST"
+              onSubmit={form.handleSubmit(handleSubmit)}
               className="mt-9 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8"
             >
               <div className="sm:col-span-2">
@@ -36,11 +93,27 @@ export default function SignUp(): JSX.Element {
                 <div className="mt-1">
                   <input
                     id="email"
-                    name="email"
                     type="email"
                     autoComplete="email"
-                    className="block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 sm:text-sm"
+                    {...form.register('email')}
+                    aria-invalid={form.formState.errors.email?.message != null}
+                    aria-describedby={
+                      form.formState.errors.email?.message != null
+                        ? 'email-error'
+                        : undefined
+                    }
+                    className={classNames(
+                      form.formState.errors.email?.message != null
+                        ? 'border-red-300 text-red-900 focus:border-red-500 focus:ring-red-500'
+                        : 'border-gray-300 focus:border-orange-500 focus:ring-orange-500',
+                      'block w-full rounded-md shadow-sm sm:text-sm'
+                    )}
                   />
+                  {form.formState.errors.email?.message != null && (
+                    <p className="mt-2 text-sm text-red-600" id="email-error">
+                      {form.formState.errors.email?.message}
+                    </p>
+                  )}
                 </div>
               </div>
               <div className="sm:col-span-2">
@@ -53,11 +126,35 @@ export default function SignUp(): JSX.Element {
                 <div className="mt-1">
                   <input
                     id="password"
-                    name="password"
                     type="password"
                     autoComplete="password"
-                    className="block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 sm:text-sm"
+                    {...form.register('password')}
+                    aria-invalid={
+                      form.formState.errors.password?.message != null
+                    }
+                    aria-describedby={
+                      form.formState.errors.password?.message != null
+                        ? 'password-error'
+                        : undefined
+                    }
+                    className={classNames(
+                      form.formState.errors.password?.message != null
+                        ? 'border-red-300 text-red-900 focus:border-red-500 focus:ring-red-500'
+                        : 'border-gray-300 focus:border-orange-500 focus:ring-orange-500',
+                      'block w-full rounded-md shadow-sm sm:text-sm'
+                    )}
                   />
+                  <FormProvider {...form}>
+                    <PasswordStrength />
+                  </FormProvider>
+                  {form.formState.errors.password?.message != null && (
+                    <p
+                      className="mt-2 text-sm text-red-600"
+                      id="password-error"
+                    >
+                      {form.formState.errors.password?.message}
+                    </p>
+                  )}
                 </div>
               </div>
               <div className="sm:col-span-2">
@@ -70,11 +167,36 @@ export default function SignUp(): JSX.Element {
                 <div className="mt-1">
                   <input
                     id="password-confirmation"
-                    name="password-confirmation"
                     type="password"
                     autoComplete="password"
-                    className="block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 sm:text-sm"
+                    {...form.register('passwordConfirmation')}
+                    aria-invalid={
+                      form.formState.errors.passwordConfirmation?.message !=
+                      null
+                    }
+                    aria-describedby={
+                      form.formState.errors.passwordConfirmation?.message !=
+                      null
+                        ? 'password-confirmation-error'
+                        : undefined
+                    }
+                    className={classNames(
+                      form.formState.errors.passwordConfirmation?.message !=
+                        null
+                        ? 'border-red-300 text-red-900 focus:border-red-500 focus:ring-red-500'
+                        : 'border-gray-300 focus:border-orange-500 focus:ring-orange-500',
+                      'block w-full rounded-md shadow-sm sm:text-sm'
+                    )}
                   />
+                  {form.formState.errors.passwordConfirmation?.message !=
+                    null && (
+                    <p
+                      className="mt-2 text-sm text-red-600"
+                      id="password-confirmation-error"
+                    >
+                      {form.formState.errors.passwordConfirmation?.message}
+                    </p>
+                  )}
                 </div>
               </div>
               <div className="sm:col-span-2">
@@ -87,11 +209,29 @@ export default function SignUp(): JSX.Element {
                 <div className="mt-1">
                   <input
                     id="name"
-                    name="name"
                     type="text"
                     autoComplete="name"
-                    className="block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 sm:text-sm"
+                    {...form.register('name')}
+                    aria-invalid={
+                      form.formState.errors.companyName?.message != null
+                    }
+                    aria-describedby={
+                      form.formState.errors.companyName?.message != null
+                        ? 'name-error'
+                        : undefined
+                    }
+                    className={classNames(
+                      form.formState.errors.companyName?.message != null
+                        ? 'border-red-300 text-red-900 focus:border-red-500 focus:ring-red-500'
+                        : 'border-gray-300 focus:border-orange-500 focus:ring-orange-500',
+                      'block w-full rounded-md shadow-sm sm:text-sm'
+                    )}
                   />
+                  {form.formState.errors.name?.message != null && (
+                    <p className="mt-2 text-sm text-red-600" id="name-error">
+                      {form.formState.errors.name?.message}
+                    </p>
+                  )}
                 </div>
               </div>
               <div className="sm:col-span-2">
@@ -104,32 +244,74 @@ export default function SignUp(): JSX.Element {
                 <div className="mt-1">
                   <input
                     type="text"
-                    name="company-name"
                     id="company-name"
                     autoComplete="organization"
-                    className="block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 sm:text-sm"
+                    {...form.register('companyName')}
+                    aria-invalid={
+                      form.formState.errors.companyName?.message != null
+                    }
+                    aria-describedby={
+                      form.formState.errors.companyName?.message != null
+                        ? 'company-name-error'
+                        : undefined
+                    }
+                    className={classNames(
+                      form.formState.errors.companyName?.message != null
+                        ? 'border-red-300 text-red-900 focus:border-red-500 focus:ring-red-500'
+                        : 'border-gray-300 focus:border-orange-500 focus:ring-orange-500',
+                      'block w-full rounded-md shadow-sm sm:text-sm'
+                    )}
                   />
+                  {form.formState.errors.companyName?.message != null && (
+                    <p
+                      className="mt-2 text-sm text-red-600"
+                      id="company-name-error"
+                    >
+                      {form.formState.errors.companyName?.message}
+                    </p>
+                  )}
                 </div>
               </div>
               <div className="sm:col-span-2">
-                <div className="flex justify-between">
-                  <label
-                    htmlFor="phone-number"
-                    className="block text-sm font-medium text-gray-700"
-                  >
-                    Telefone celular
-                  </label>
-                </div>
-                <div className="mt-1">
+                <label
+                  htmlFor="phone-number"
+                  className="block text-sm font-medium text-gray-700"
+                >
+                  Telefone celular
+                </label>
+                <div className="mt-1 flex rounded-md shadow-sm">
+                  <span className="inline-flex items-center rounded-l-md border border-r-0 border-gray-300 bg-gray-50 px-3 text-gray-500 sm:text-sm">
+                    +55
+                  </span>
                   <input
                     type="text"
-                    name="phone"
-                    id="phone"
-                    autoComplete="tel"
-                    aria-describedby="phone-number-description"
-                    className="block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 sm:text-sm"
+                    id="phone-number"
+                    {...form.register('phoneNumber')}
+                    aria-invalid={
+                      form.formState.errors.phoneNumber?.message != null
+                    }
+                    aria-describedby={
+                      form.formState.errors.phoneNumber?.message != null
+                        ? 'phone-number-error'
+                        : undefined
+                    }
+                    className={classNames(
+                      form.formState.errors.companyName?.message != null
+                        ? 'border-red-300 text-red-900 focus:border-red-500 focus:ring-red-500'
+                        : 'border-gray-300 focus:border-orange-500 focus:ring-orange-500',
+                      'block w-full min-w-0 flex-1 rounded-none rounded-r-md shadow-sm sm:text-sm px-3 py-2'
+                    )}
+                    placeholder="11963005536"
                   />
                 </div>
+                {form.formState.errors.phoneNumber?.message != null && (
+                  <p
+                    className="mt-2 text-sm text-red-600"
+                    id="phone-number-error"
+                  >
+                    {form.formState.errors.phoneNumber?.message}
+                  </p>
+                )}
               </div>
               <div className="text-right sm:col-span-2">
                 <button

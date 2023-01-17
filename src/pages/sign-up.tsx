@@ -1,6 +1,6 @@
 import { XCircleIcon } from '@heroicons/react/20/solid'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { AxiosError } from 'axios'
+import { isAxiosError } from 'axios'
 import Router from 'next/router'
 import { NextSeo } from 'next-seo'
 import { useState } from 'react'
@@ -105,7 +105,7 @@ export default function SignUp(): JSX.Element {
         return
       }
     } catch (error: any) {
-      if (error instanceof AxiosError && error.response?.status === 403) {
+      if (isAxiosError(error) && error.response?.status === 403) {
         toast('error', {
           title: 'Erro',
           message: error.response.data.error.message,
@@ -131,10 +131,10 @@ export default function SignUp(): JSX.Element {
         price_id: priceId,
       })
     } catch (error: any) {
-      if (error instanceof AxiosError && error.response?.status === 403) {
+      if (isAxiosError(error)) {
         toast('error', {
           title: 'Erro',
-          message: error.response.data.error.message,
+          message: error.response?.data.error.message ?? 'Erro desconhecido.',
         })
       }
     } finally {

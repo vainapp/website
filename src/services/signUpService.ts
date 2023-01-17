@@ -15,6 +15,15 @@ interface PreSignUpRequestBody {
   price_id: string
 }
 
+interface ResendSMSCodeRequestBody {
+  employee_id: string
+}
+
+interface VerifyPhoneNumberRequestBody {
+  employee_id: string
+  code: string
+}
+
 async function signUp(
   data: SignUpRequestBody
 ): Promise<{ company_id: string; employee_id: string }> {
@@ -31,4 +40,14 @@ async function preSignUp(data: PreSignUpRequestBody): Promise<{
     .then(({ data }) => data)
 }
 
-export { signUp, preSignUp }
+async function resendSMSCode(data: ResendSMSCodeRequestBody): Promise<void> {
+  await httpClient.post('/companies/verify-phone-number/resend', data)
+}
+
+async function verifyPhoneNumber(
+  data: VerifyPhoneNumberRequestBody
+): Promise<void> {
+  await httpClient.post('/companies/verify-phone-number', data)
+}
+
+export { signUp, preSignUp, resendSMSCode, verifyPhoneNumber }

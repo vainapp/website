@@ -126,7 +126,7 @@ export default function SignUp(): JSX.Element {
         password: data.password,
         password_confirmation: data.passwordConfirmation,
         company_name: data.companyName,
-        phone_number: data.phoneNumber,
+        phone_number: `55${data.phoneNumber}`,
         name: data.name,
         price_id: priceId,
       })

@@ -1,8 +1,8 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { isAxiosError } from 'axios'
-import Router, { useRouter } from 'next/router'
+import { useRouter } from 'next/router'
 import { NextSeo } from 'next-seo'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 
@@ -22,28 +22,30 @@ type PhoneNumberVerificationForm = z.infer<typeof schema>
 
 export default function CompanyEmailVerified(): JSX.Element | null {
   const [isLoading, setIsLoading] = useState(false)
-  const { query } = useRouter()
+  const router = useRouter()
   const {
     price_id: priceId,
     employee_id: employeeId,
     needs_sms_verification: needsSMSVerification,
-  } = query
+  } = router.query
   const { toast } = useToast()
   const form = useForm<PhoneNumberVerificationForm>({
     resolver: zodResolver(schema),
   })
 
-  if (priceId == null || employeeId == null || needsSMSVerification == null) {
-    return null
-  }
+  useEffect(() => {
+    if (needsSMSVerification === 'false') {
+      void router.push({
+        pathname: '/company-phone-number-verified',
+        query: {
+          price_id: priceId,
+          employee_id: employeeId,
+        },
+      })
+    }
+  }, [employeeId, needsSMSVerification, priceId, router])
 
-  if (needsSMSVerification === 'false') {
-    void Router.push('/company-phone-number-verified', {
-      query: {
-        price_id: priceId,
-        employee_id: employeeId,
-      },
-    })
+  if (priceId == null || employeeId == null || needsSMSVerification == null) {
     return null
   }
 
@@ -58,7 +60,8 @@ export default function CompanyEmailVerified(): JSX.Element | null {
         code: data.code,
       })
 
-      void Router.push('/company-phone-number-verified', {
+      await router.push({
+        pathname: '/company-phone-number-verified',
         query: {
           price_id: priceId,
           employee_id: employeeId,

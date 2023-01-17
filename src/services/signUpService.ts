@@ -24,6 +24,11 @@ interface VerifyPhoneNumberRequestBody {
   code: string
 }
 
+interface CreateCheckoutSessionRequestBody {
+  price_id: string
+  employee_id: string
+}
+
 async function signUp(
   data: SignUpRequestBody
 ): Promise<{ company_id: string; employee_id: string }> {
@@ -50,4 +55,18 @@ async function verifyPhoneNumber(
   await httpClient.post('/companies/verify-phone-number', data)
 }
 
-export { signUp, preSignUp, resendSMSCode, verifyPhoneNumber }
+async function createCheckoutSession(
+  data: CreateCheckoutSessionRequestBody
+): Promise<{ checkout_url: string }> {
+  return await httpClient
+    .post('/companies/payments/checkout-session', data)
+    .then(({ data }) => data)
+}
+
+export {
+  signUp,
+  preSignUp,
+  resendSMSCode,
+  verifyPhoneNumber,
+  createCheckoutSession,
+}

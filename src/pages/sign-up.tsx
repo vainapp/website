@@ -1,5 +1,6 @@
 import { XCircleIcon } from '@heroicons/react/20/solid'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { AxiosError } from 'axios'
 import Router from 'next/router'
 import { NextSeo } from 'next-seo'
 import { useState } from 'react'
@@ -10,6 +11,7 @@ import zxcvbn from 'zxcvbn'
 import { Link } from '../components/Link'
 import { PasswordStrength } from '../components/PasswordStrength'
 import { useCheckout } from '../contexts/CheckoutContext'
+import { useToast } from '../contexts/ToastContext'
 import { classNames } from '../helpers/classNames'
 import { signUp, preSignUp } from '../services/signUpService'
 
@@ -57,52 +59,60 @@ export type SignUpForm = z.infer<typeof schema>
 
 export default function SignUp(): JSX.Element {
   const [isLoading, setIsLoading] = useState(false)
+  const [emailChecked, setEmailChecked] = useState<string>()
   const form = useForm<SignUpForm>({
     mode: 'onBlur',
     reValidateMode: 'onBlur',
     resolver: zodResolver(schema),
   })
   const { plan, intervalFilter } = useCheckout()
+  const { toast } = useToast()
 
   const priceId =
     plan !== null
       ? plan[intervalFilter === 'monthly' ? 'monthly_price' : 'yearly_price'].id
       : null
 
-  const handlePasswordFocus = async (
-    event: React.FocusEvent<HTMLInputElement>
-  ): Promise<any> => {
-    if (
-      // eslint-disable-next-line eqeqeq
-      form.formState.dirtyFields.email === true &&
-      form.formState.errors.email?.message == null &&
-      priceId != null
-    ) {
-      setIsLoading(true)
-
-      try {
-        const response = await preSignUp({
-          email: form.getValues('email'),
-          price_id: priceId,
-        })
-
-        if (response?.checkout_url != null) {
-          window.location.href = response.checkout_url
-          return
-        }
-
-        if (response != null && response.verified === false) {
-          void Router.push('/verify-your-email')
-          return
-        }
-      } catch (error) {
-        console.error(error)
-      } finally {
-        setIsLoading(false)
-      }
+  const handleEmailBlur = async (event: {
+    target: any
+    type?: any
+  }): Promise<void> => {
+    if (priceId === null) {
+      return
     }
 
-    return await form.register('email').onBlur(event)
+    const email = form.getValues('email')
+
+    if (email === emailChecked) {
+      return
+    }
+
+    try {
+      const response = await preSignUp({
+        email: form.getValues('email'),
+        price_id: priceId,
+      })
+
+      setEmailChecked(email)
+
+      if (response?.checkout_url != null) {
+        window.location.href = response.checkout_url
+        return
+      }
+
+      if (response != null && response.verified === false) {
+        void Router.push('/verify-your-email')
+        return
+      }
+    } catch (error: any) {
+      if (error instanceof AxiosError && error.response?.status === 403) {
+        toast('error', {
+          title: 'Erro',
+          message: error.response.data.error.message,
+        })
+        void Router.push('/')
+      }
+    }
   }
 
   const handleSubmit = async (data: SignUpForm): Promise<void> => {
@@ -120,8 +130,13 @@ export default function SignUp(): JSX.Element {
         name: data.name,
         price_id: priceId,
       })
-    } catch (error) {
-      console.error(error) // TODO add snackbar here
+    } catch (error: any) {
+      if (error instanceof AxiosError && error.response?.status === 403) {
+        toast('error', {
+          title: 'Erro',
+          message: error.response.data.error.message,
+        })
+      }
     } finally {
       setIsLoading(false)
       void Router.push('/verify-your-email')
@@ -191,7 +206,9 @@ export default function SignUp(): JSX.Element {
                       id="email"
                       type="email"
                       autoComplete="email"
-                      {...form.register('email')}
+                      {...form.register('email', {
+                        onBlur: handleEmailBlur,
+                      })}
                       aria-invalid={
                         form.formState.errors.email?.message != null
                       }
@@ -228,7 +245,6 @@ export default function SignUp(): JSX.Element {
                       type="password"
                       autoComplete="password"
                       {...form.register('password')}
-                      onFocus={handlePasswordFocus}
                       aria-invalid={
                         form.formState.errors.password?.message != null
                       }

@@ -1,3 +1,4 @@
+import { isAxiosError } from 'axios'
 import { NextApiRequest, NextApiResponse } from 'next'
 
 import { httpServerSide } from '../../services/httpClient'
@@ -11,10 +12,18 @@ export default async function handler(
     return
   }
 
-  const apiResponse = await httpServerSide.post(
-    '/companies/verify-email/resend',
-    request.body
-  )
+  try {
+    const apiResponse = await httpServerSide.post(
+      '/companies/verify-email/resend',
+      request.body
+    )
 
-  response.status(apiResponse.status).json(apiResponse.data)
+    response.status(apiResponse.status).json(apiResponse.data)
+  } catch (error) {
+    if (isAxiosError(error)) {
+      response.status(error.response?.status ?? 500).json(error.response?.data)
+    }
+
+    response.status(500).json({ message: 'Internal server error' })
+  }
 }

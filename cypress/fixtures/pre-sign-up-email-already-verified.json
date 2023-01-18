@@ -1,0 +1,6 @@
+{
+  "data": {
+    "verified": true,
+    "checkout_url": "http://localhost:3000/fake-checkout-url"
+  }
+}

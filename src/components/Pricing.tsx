@@ -1,20 +1,27 @@
 import { CheckIcon } from '@heroicons/react/24/outline'
+import { useRouter } from 'next/router'
+import { useState } from 'react'
 import { Element } from 'react-scroll'
 
 import { basicPlan, Plan, plusPlan, proPlan } from '../constants/plans'
-import { useCheckout } from '../contexts/CheckoutContext'
 import { classNames } from '../helpers/classNames'
 
-import { Link } from './Link'
-
 export const Pricing: React.FC = () => {
-  const { setPlan, intervalFilter, setIntervalFilter } = useCheckout()
+  const [intervalFilter, setIntervalFilter] = useState<'monthly' | 'yearly'>(
+    'monthly'
+  )
+  const router = useRouter()
   const intervalFilterLabel = intervalFilter === 'monthly' ? '/mês' : '/ano'
   const intervalPriceKey =
     intervalFilter === 'monthly' ? 'monthly_price' : 'yearly_price'
 
   const handlePlanSelection = (plan: Plan): void => {
-    setPlan(plan)
+    void router.push({
+      pathname: '/sign-up',
+      query: {
+        price_id: plan[intervalPriceKey].id,
+      },
+    })
   }
 
   return (
@@ -38,6 +45,7 @@ export const Pricing: React.FC = () => {
       <div className="relative mt-12 flex justify-center sm:mt-16">
         <div className="flex rounded-lg bg-orange-500 p-0.5">
           <button
+            data-testid="monthly-pricing-interval"
             type="button"
             className={classNames(
               intervalFilter === 'monthly'
@@ -52,6 +60,7 @@ export const Pricing: React.FC = () => {
             Assinatura mensal
           </button>
           <button
+            data-testid="yearly-pricing-interval"
             type="button"
             className={classNames(
               intervalFilter === 'yearly'
@@ -117,8 +126,8 @@ export const Pricing: React.FC = () => {
                       </ul>
                       <div className="mt-8">
                         <div className="rounded-lg shadow-md">
-                          <Link
-                            href="/sign-up"
+                          <button
+                            type="button"
                             onClick={() => {
                               handlePlanSelection(basicPlan)
                             }}
@@ -126,7 +135,7 @@ export const Pricing: React.FC = () => {
                             aria-describedby="tier-basic"
                           >
                             Inicie seu período de testes
-                          </Link>
+                          </button>
                         </div>
                       </div>
                     </div>
@@ -187,8 +196,9 @@ export const Pricing: React.FC = () => {
                     </ul>
                     <div className="mt-10">
                       <div className="rounded-lg shadow-md">
-                        <Link
-                          href="/sign-up"
+                        <button
+                          data-testid="subscribe-button"
+                          type="button"
                           onClick={() => {
                             handlePlanSelection(plusPlan)
                           }}
@@ -196,7 +206,7 @@ export const Pricing: React.FC = () => {
                           aria-describedby="tier-plus"
                         >
                           Assinar
-                        </Link>
+                        </button>
                       </div>
                     </div>
                   </div>
@@ -246,8 +256,8 @@ export const Pricing: React.FC = () => {
                       </ul>
                       <div className="mt-8">
                         <div className="rounded-lg shadow-md">
-                          <Link
-                            href="/sign-up"
+                          <button
+                            type="button"
                             onClick={() => {
                               handlePlanSelection(proPlan)
                             }}
@@ -255,7 +265,7 @@ export const Pricing: React.FC = () => {
                             aria-describedby="tier-pro"
                           >
                             Assinar
-                          </Link>
+                          </button>
                         </div>
                       </div>
                     </div>

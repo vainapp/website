@@ -45,7 +45,7 @@ export default function CompanyPhoneNumberVerified(): JSX.Element | null {
   }, [employeeId, priceId, toast])
 
   if (priceId == null || employeeId == null) {
-    return <div>hey!</div>
+    return null
   }
 
   const handleOpenCheckoutURL = (): void => {
@@ -58,16 +58,17 @@ export default function CompanyPhoneNumberVerified(): JSX.Element | null {
 
   return (
     <>
-      <NextSeo title="Pagamento" />
+      <NextSeo title="Primeiro acesso" noindex />
       <PageHeader
-        title="Pagamento"
+        title="Bem-vindo(a)!"
         description="Está tudo pronto com a sua conta! Agora, para liberar o seu acesso, você precisa cadastrar um método de pagamento para ativar a sua assinatura."
+        backgroundImageURL="https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&q=60&&sat=-100"
       />
 
       <div className="bg-orange-50">
         <div className="mx-auto max-w-7xl py-12 px-6 lg:flex lg:items-center lg:justify-between lg:py-24 lg:px-8">
           <h2 className="text-3xl font-bold tracking-tight text-gray-900 md:text-4xl">
-            <span className="block">Pronto pra começar?</span>
+            <span className="block">Vamos começar?</span>
             <span className="block text-orange-500">
               Ative sua conta agora mesmo.
             </span>

@@ -15,6 +15,11 @@ interface PreSignUpRequestBody {
   price_id: string
 }
 
+interface ResendEmailVerificationRequestBody {
+  email: string
+  price_id: string
+}
+
 interface ResendSMSCodeRequestBody {
   employee_id: string
 }
@@ -45,14 +50,20 @@ async function preSignUp(data: PreSignUpRequestBody): Promise<{
     .then(({ data }) => data)
 }
 
-async function resendSMSCode(data: ResendSMSCodeRequestBody): Promise<void> {
-  await httpClient.post('/companies/verify-phone-number/resend', data)
+async function resendEmailVerification(
+  data: ResendEmailVerificationRequestBody
+): Promise<any> {
+  return await httpClient.post('/companies/verify-email/resend', data)
+}
+
+async function resendSMSCode(data: ResendSMSCodeRequestBody): Promise<any> {
+  return await httpClient.post('/companies/verify-phone-number/resend', data)
 }
 
 async function verifyPhoneNumber(
   data: VerifyPhoneNumberRequestBody
-): Promise<void> {
-  await httpClient.post('/companies/verify-phone-number', data)
+): Promise<any> {
+  return await httpClient.post('/companies/verify-phone-number', data)
 }
 
 async function createCheckoutSession(
@@ -66,6 +77,7 @@ async function createCheckoutSession(
 export {
   signUp,
   preSignUp,
+  resendEmailVerification,
   resendSMSCode,
   verifyPhoneNumber,
   createCheckoutSession,

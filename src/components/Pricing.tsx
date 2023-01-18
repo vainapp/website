@@ -45,6 +45,7 @@ export const Pricing: React.FC = () => {
       <div className="relative mt-12 flex justify-center sm:mt-16">
         <div className="flex rounded-lg bg-orange-500 p-0.5">
           <button
+            data-testid="monthly-pricing-interval"
             type="button"
             className={classNames(
               intervalFilter === 'monthly'
@@ -59,6 +60,7 @@ export const Pricing: React.FC = () => {
             Assinatura mensal
           </button>
           <button
+            data-testid="yearly-pricing-interval"
             type="button"
             className={classNames(
               intervalFilter === 'yearly'
@@ -195,6 +197,7 @@ export const Pricing: React.FC = () => {
                     <div className="mt-10">
                       <div className="rounded-lg shadow-md">
                         <button
+                          data-testid="subscribe-button"
                           type="button"
                           onClick={() => {
                             handlePlanSelection(plusPlan)

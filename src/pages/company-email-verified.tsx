@@ -128,6 +128,7 @@ export default function CompanyEmailVerified(): JSX.Element | null {
               </label>
               <div className="mt-1">
                 <input
+                  data-testid="sms-code-input"
                   id="code"
                   disabled={isLoading}
                   type="text"
@@ -156,6 +157,7 @@ export default function CompanyEmailVerified(): JSX.Element | null {
             </div>
             <div className="text-right sm:col-span-2">
               <button
+                data-testid="resend-sms-code-button"
                 disabled={isLoading}
                 type="button"
                 onClick={handleResendCode}
@@ -164,6 +166,7 @@ export default function CompanyEmailVerified(): JSX.Element | null {
                 Reenviar código
               </button>
               <button
+                data-testid="verify-phone-number-button"
                 type="submit"
                 disabled={isLoading}
                 className="ml-2 inline-flex items-center rounded-md border border-transparent bg-orange-500 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 disabled:cursor-not-allowed disabled:border-gray-200 disabled:bg-gray-50 disabled:text-gray-500"

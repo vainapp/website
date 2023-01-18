@@ -57,7 +57,7 @@ async function resendEmailVerification(
 }
 
 async function resendSMSCode(data: ResendSMSCodeRequestBody): Promise<any> {
-  return await httpClientSide.post('resend-sms', data)
+  return await httpClientSide.post('/resend-sms', data)
 }
 
 async function verifyPhoneNumber(

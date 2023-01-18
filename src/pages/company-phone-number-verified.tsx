@@ -76,6 +76,7 @@ export default function CompanyPhoneNumberVerified(): JSX.Element | null {
           <div className="mt-8 flex lg:mt-0 lg:flex-shrink-0">
             <div className="inline-flex rounded-md shadow">
               <button
+                data-testid="activate-account-button"
                 type="submit"
                 disabled={isLoading}
                 onClick={handleOpenCheckoutURL}

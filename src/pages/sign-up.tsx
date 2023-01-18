@@ -27,7 +27,8 @@ const schema = z
       .string()
       .trim()
       .regex(/\d+/g, 'Apenas números são permitidos.')
-      .min(10, 'Informe um número de telefone válido.'),
+      .min(10, 'Informe um número de telefone válido.')
+      .max(11, 'Informe um número de telefone válido.'),
   })
   .superRefine((shape, context) => {
     const { password, passwordConfirmation } = shape
@@ -175,6 +176,7 @@ export default function SignUp(): JSX.Element | null {
               </label>
               <div className="mt-1">
                 <input
+                  data-testid="email-input"
                   disabled={isLoading}
                   id="email"
                   type="email"
@@ -211,6 +213,7 @@ export default function SignUp(): JSX.Element | null {
               </label>
               <div className="mt-1">
                 <input
+                  data-testid="password-input"
                   disabled={isLoading}
                   id="password"
                   type="password"
@@ -248,6 +251,7 @@ export default function SignUp(): JSX.Element | null {
               </label>
               <div className="mt-1">
                 <input
+                  data-testid="password-confirmation-input"
                   disabled={isLoading}
                   id="password-confirmation"
                   type="password"
@@ -288,6 +292,7 @@ export default function SignUp(): JSX.Element | null {
               </label>
               <div className="mt-1">
                 <input
+                  data-testid="name-input"
                   disabled={isLoading}
                   id="name"
                   type="text"
@@ -324,6 +329,7 @@ export default function SignUp(): JSX.Element | null {
               </label>
               <div className="mt-1">
                 <input
+                  data-testid="company-name-input"
                   disabled={isLoading}
                   type="text"
                   id="company-name"
@@ -366,6 +372,7 @@ export default function SignUp(): JSX.Element | null {
                   +55
                 </span>
                 <input
+                  data-testid="phone-number-input"
                   disabled={isLoading}
                   type="text"
                   id="phone-number"
@@ -398,6 +405,7 @@ export default function SignUp(): JSX.Element | null {
             </div>
             <div className="text-right sm:col-span-2">
               <button
+                data-testid="sign-up-button"
                 type="submit"
                 disabled={isLoading}
                 className="ml-2 inline-flex items-center rounded-md border border-transparent bg-orange-500 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 disabled:cursor-not-allowed disabled:border-gray-200 disabled:bg-gray-50 disabled:text-gray-500"

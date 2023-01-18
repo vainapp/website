@@ -60,6 +60,7 @@ export default function VerifyYourEmail(): JSX.Element | null {
             no botão abaixo para reenviar o e-mail.
           </p>
           <button
+            data-testid="resend-email-verification-button"
             disabled={isLoading}
             type="button"
             onClick={handleResendEmailVerification}

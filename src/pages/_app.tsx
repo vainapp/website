@@ -5,7 +5,6 @@ import { DefaultSeo } from 'next-seo'
 import { Footer } from '../components/Footer'
 import { Header } from '../components/Header'
 import '../styles/globals.css'
-import { CheckoutProvider } from '../contexts/CheckoutContext'
 import { ScrollToAnchorProvider } from '../contexts/ScrollToAnchorContext'
 import { ToastProvider } from '../contexts/ToastContext'
 import { SEOConfig } from '../seo.config'
@@ -14,13 +13,11 @@ export default function App({ Component, pageProps }: AppProps): JSX.Element {
   return (
     <ScrollToAnchorProvider>
       <ToastProvider>
-        <CheckoutProvider>
-          <DefaultSeo {...SEOConfig} />
-          <Header />
-          <Component {...pageProps} />
-          <Analytics />
-          <Footer />
-        </CheckoutProvider>
+        <DefaultSeo {...SEOConfig} />
+        <Header />
+        <Component {...pageProps} />
+        <Analytics />
+        <Footer />
       </ToastProvider>
     </ScrollToAnchorProvider>
   )

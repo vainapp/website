@@ -3,7 +3,7 @@ import { scroller } from 'react-scroll'
 
 import { CTAFreeTrial } from '../components/CTAFreeTrial'
 import { CTANewsletter } from '../components/CTANewsletter'
-import { FAQ } from '../components/FAQ'
+import { FAQHeader } from '../components/FAQHeader'
 import { FeatureList } from '../components/FeatureList'
 import { FloatingBottomBanner } from '../components/FloatingBottomBanner'
 import { Hero } from '../components/Hero'
@@ -31,7 +31,7 @@ export default function Home(): JSX.Element {
       <Stats />
       <CTAFreeTrial />
       <Pricing />
-      <FAQ />
+      <FAQHeader />
       <CTANewsletter />
       <FloatingBottomBanner />
     </>

@@ -1,57 +1,49 @@
-import { Disclosure } from '@headlessui/react'
-import { ChevronDownIcon } from '@heroicons/react/24/outline'
-import { Element } from 'react-scroll'
+import { Link } from './Link'
 
-import { classNames } from '../helpers/classNames'
+interface FAQProps {
+  faqs: Array<{
+    question: string
+    answer: string
+  }>
+}
 
-const faqs = [
-  {
-    question: 'O que é a Vain?',
-    answer:
-      'Somos uma plataforma que facilita o agendamento e gerenciamento de estabelecimentos focados em estética. Com a Vain, você participa de um marketplace com direito a gerenciar toda a sua agenda, seus serviços, funcionários, franquias, clientes, gerar relatórios e muito mais. Tudo isso de forma simples e intuitiva.',
-  },
-  // TODO: Add more questions
-]
-
-export const FAQ: React.FC = () => {
+export const FAQ: React.FC<FAQProps> = ({ faqs }: FAQProps) => {
   return (
-    <Element name="faq" className="bg-white">
-      <div className="mx-auto max-w-7xl py-12 px-6 sm:py-16 lg:px-8">
-        <div className="mx-auto max-w-3xl divide-y-2 divide-gray-200">
-          <h2 className="text-center text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-            Perguntas frequentemente feitas
-          </h2>
-          <dl className="mt-6 space-y-6 divide-y divide-gray-200">
-            {faqs.map((faq) => (
-              <Disclosure as="div" key={faq.question} className="pt-6">
-                {({ open }) => (
-                  <>
-                    <dt className="text-lg">
-                      <Disclosure.Button className="flex w-full items-start justify-between text-left text-gray-400">
-                        <span className="font-medium text-gray-900">
-                          {faq.question}
-                        </span>
-                        <span className="ml-6 flex h-7 items-center">
-                          <ChevronDownIcon
-                            className={classNames(
-                              open ? '-rotate-180' : 'rotate-0',
-                              'h-6 w-6 transform'
-                            )}
-                            aria-hidden="true"
-                          />
-                        </span>
-                      </Disclosure.Button>
-                    </dt>
-                    <Disclosure.Panel as="dd" className="mt-2 pr-12">
-                      <p className="text-base text-gray-500">{faq.answer}</p>
-                    </Disclosure.Panel>
-                  </>
-                )}
-              </Disclosure>
-            ))}
-          </dl>
+    <div className="bg-white">
+      <div className="mx-auto max-w-7xl px-6 py-24 sm:pt-32 lg:py-40 lg:px-8">
+        <div className="lg:grid lg:grid-cols-12 lg:gap-8">
+          <div className="lg:col-span-5">
+            <h2 className="text-2xl font-bold leading-10 tracking-tight text-gray-900">
+              Principais perguntas
+            </h2>
+            <p className="mt-4 text-base leading-7 text-gray-600">
+              Não consegue encontrar a resposta que está procurando? Entre em
+              contato com o nosso{' '}
+              <Link
+                href="/contact"
+                className="font-semibold text-orange-500 hover:text-orange-400"
+              >
+                time de suporte
+              </Link>
+              .
+            </p>
+          </div>
+          <div className="mt-10 lg:col-span-7 lg:mt-0">
+            <dl className="space-y-10">
+              {faqs.map((faq) => (
+                <div key={faq.question}>
+                  <dt className="text-base font-semibold leading-7 text-gray-900">
+                    {faq.question}
+                  </dt>
+                  <dd className="mt-2 text-base leading-7 text-gray-600">
+                    {faq.answer}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </div>
         </div>
       </div>
-    </Element>
+    </div>
   )
 }

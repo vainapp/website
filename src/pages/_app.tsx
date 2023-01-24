@@ -10,14 +10,17 @@ import { ToastProvider } from '../contexts/ToastContext'
 import { SEOConfig } from '../seo.config'
 
 export default function App({ Component, pageProps }: AppProps): JSX.Element {
+  const shouldRenderLayout =
+    process.env.NEXT_PUBLIC_ENFORCE_COMING_SOON_PAGE !== 'true'
+
   return (
     <ScrollToAnchorProvider>
       <ToastProvider>
         <DefaultSeo {...SEOConfig} />
-        <Header />
+        {shouldRenderLayout && <Header />}
         <Component {...pageProps} />
         <Analytics />
-        <Footer />
+        {shouldRenderLayout && <Footer />}
       </ToastProvider>
     </ScrollToAnchorProvider>
   )

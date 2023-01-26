@@ -40,8 +40,8 @@ export default function PaymentSucceeded(): JSX.Element {
               <picture>
                 <img
                   className="translate-x-6 translate-y-6 transform rounded-md object-cover object-left-top sm:translate-x-16 lg:translate-y-20"
-                  src="https://tailwindui.com/img/component-images/full-width-with-sidebar.jpg"
-                  alt="Captura de tela da plataforma"
+                  src="https://cdn.vainapp.com.br/website/interface-sistema-vain-3.jpeg"
+                  alt="Interface do sistema administrativo da Vain"
                 />
               </picture>
             </div>

@@ -91,7 +91,11 @@ export const Footer: React.FC = () => {
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
           <div className="space-y-8">
             <picture>
-              <img className="h-7" src="/logo.png" alt="Vain logo" />
+              <img
+                className="h-7"
+                src="https://cdn.vainapp.com.br/website/logo.png"
+                alt="Vain logo"
+              />
             </picture>
             <p className="text-sm leading-6 text-gray-600">
               Leve a estética para o próximo nível.

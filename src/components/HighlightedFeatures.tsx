@@ -60,7 +60,7 @@ export const HighlightedFeatures: React.FC = () => {
                       <picture>
                         <img
                           className="h-6 w-6 rounded-full"
-                          src="/joao.jpg"
+                          src="https://cdn.vainapp.com.br/website/joao.jpg"
                           alt="João, Co-Founder e CTO da empresa"
                         />
                       </picture>
@@ -78,8 +78,8 @@ export const HighlightedFeatures: React.FC = () => {
               <picture>
                 <img
                   className="w-full rounded-xl shadow-xl ring-1 ring-black ring-opacity-5 lg:absolute lg:left-0 lg:h-full lg:w-auto lg:max-w-none"
-                  src="https://tailwindui.com/img/component-images/inbox-app-screenshot-1.jpg"
-                  alt="Inbox user interface"
+                  src="https://cdn.vainapp.com.br/website/interface-sistema-vain-1.jpeg"
+                  alt="Interface do sistema administrativo da Vain"
                 />
               </picture>
             </div>
@@ -121,8 +121,8 @@ export const HighlightedFeatures: React.FC = () => {
               <picture>
                 <img
                   className="w-full rounded-xl shadow-xl ring-1 ring-black ring-opacity-5 lg:absolute lg:right-0 lg:h-full lg:w-auto lg:max-w-none"
-                  src="https://tailwindui.com/img/component-images/inbox-app-screenshot-2.jpg"
-                  alt="Customer profile user interface"
+                  src="https://cdn.vainapp.com.br/website/interface-sistema-vain-2.jpeg"
+                  alt="Interface do sistema administrativo da Vain"
                 />
               </picture>
             </div>

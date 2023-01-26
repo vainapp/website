@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/vainapp/front-end/compare/v1.0.0...v1.1.0) (2023-01-26)
+
+
+### Features
+
+* **s3:** use CDN images ([#23](https://github.com/vainapp/front-end/issues/23)) ([5f0dcb0](https://github.com/vainapp/front-end/commit/5f0dcb06e7913f761cd8c91a71f7140138117830))
+
 # 1.0.0 (2023-01-24)
 
 

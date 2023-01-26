@@ -46,7 +46,7 @@ export default function NotFound(): JSX.Element {
             <picture>
               <img
                 className="mx-auto h-12 w-auto"
-                src="/logo.png"
+                src="https://cdn.vainapp.com.br/website/logo.png"
                 alt="Vain logo"
               />
             </picture>

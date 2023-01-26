@@ -12,7 +12,7 @@ export const SignUpFlowWrapper: React.FC<SignUpFlowWrapperProps> = ({
           <picture>
             <img
               className="h-56 w-full object-cover lg:absolute lg:h-full"
-              src="https://images.unsplash.com/photo-1556761175-4b46a572b786?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1567&q=80"
+              src="https://cdn.vainapp.com.br/website/escritorio.jpeg"
               alt="Escritório"
             />
           </picture>

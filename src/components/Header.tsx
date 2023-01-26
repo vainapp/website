@@ -92,7 +92,7 @@ export const Header: React.FC = () => {
             <picture>
               <img
                 className="h-8 w-auto sm:h-14"
-                src="/logo.png"
+                src="https://cdn.vainapp.com.br/website/logo.png"
                 alt="Vain logo"
               />
             </picture>
@@ -299,7 +299,7 @@ export const Header: React.FC = () => {
                   <picture>
                     <img
                       className="h-8 w-auto"
-                      src="/logo.png"
+                      src="https://cdn.vainapp.com.br/website/logo.png"
                       alt="Vain logo"
                     />
                   </picture>

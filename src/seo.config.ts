@@ -27,7 +27,7 @@ export const SEOConfig: DefaultSeoProps = {
     description: DEFAULT_DESCRIPTION,
     images: [
       {
-        url: 'https://vainapp.com.br/full-logo.png',
+        url: 'https://cdn.vainapp.com.br/website/full-logo.png',
         width: 1980,
         height: 1980,
         alt: 'Vain logo',

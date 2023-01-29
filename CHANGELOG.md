@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/vainapp/front-end/compare/v1.2.0...v1.3.0) (2023-01-29)
+
+
+### Features
+
+* **newsletter:** save email addresses to sendgrid ([#27](https://github.com/vainapp/front-end/issues/27)) ([7dce5d7](https://github.com/vainapp/front-end/commit/7dce5d7b651459317b685c95916e34dc2e28bfeb))
+
 # [1.2.0](https://github.com/vainapp/front-end/compare/v1.1.0...v1.2.0) (2023-01-29)
 
 

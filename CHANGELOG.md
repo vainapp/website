@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/vainapp/front-end/compare/v1.1.0...v1.2.0) (2023-01-29)
+
+
+### Features
+
+* **legal:** use the PageHeader component in the legal pages ([#25](https://github.com/vainapp/front-end/issues/25)) ([d8ceb19](https://github.com/vainapp/front-end/commit/d8ceb1966021bd294ed7cb01e84c732cc52abd75))
+
 # [1.1.0](https://github.com/vainapp/front-end/compare/v1.0.0...v1.1.0) (2023-01-26)
 
 

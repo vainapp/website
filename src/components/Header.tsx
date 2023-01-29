@@ -100,11 +100,18 @@ export const Header: React.FC = () => {
         </div>
         <div className="-my-2 -mr-2 md:hidden">
           <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-orange-500">
-            <span className="sr-only">Open menu</span>
+            <span className="sr-only">Abrir menu</span>
             <Bars3Icon className="h-6 w-6" aria-hidden="true" />
           </Popover.Button>
         </div>
         <Popover.Group as="nav" className="hidden space-x-10 md:flex">
+          <Link
+            href="/"
+            className="text-base font-medium text-gray-700 hover:text-gray-900 hover:cursor-pointer"
+          >
+            Início
+          </Link>
+
           <Popover className="relative">
             {({ open }) => (
               <>
@@ -205,7 +212,7 @@ export const Header: React.FC = () => {
             href="/contact"
             className="text-base font-medium text-gray-700 hover:text-gray-900 hover:cursor-pointer"
           >
-            Entre em contato
+            Contato
           </Link>
 
           <Popover className="relative">
@@ -335,6 +342,13 @@ export const Header: React.FC = () => {
               <div className="grid grid-cols-2 gap-4">
                 <Link
                   href="/"
+                  className="text-base font-medium text-gray-900 hover:text-gray-700"
+                >
+                  Início
+                </Link>
+
+                <Link
+                  href="/"
                   anchor="pricing"
                   className="text-base font-medium text-gray-900 hover:text-gray-700"
                 >
@@ -353,7 +367,7 @@ export const Header: React.FC = () => {
                   href="/contact"
                   className="text-base font-medium text-gray-900 hover:text-gray-700"
                 >
-                  Entre em contato
+                  Contato
                 </Link>
                 {resources.map((resource) => (
                   <Link

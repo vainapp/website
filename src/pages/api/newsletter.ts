@@ -22,6 +22,7 @@ export default async function handler(
   }
 
   const requestBody = {
+    list_ids: ['2270cd4c-ddf4-4905-ac83-4b63ea6edcc5'],
     contacts: [
       {
         email,

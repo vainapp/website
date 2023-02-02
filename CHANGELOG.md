@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/vainapp/front-end/compare/v1.3.0...v1.4.0) (2023-02-02)
+
+
+### Features
+
+* save email addresses to specific list ([dcbe4cd](https://github.com/vainapp/front-end/commit/dcbe4cdfb2e241fee96fdb58384e2e0037b78f52))
+
 # [1.3.0](https://github.com/vainapp/front-end/compare/v1.2.0...v1.3.0) (2023-01-29)
 
 

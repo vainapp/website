@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/vainapp/website/compare/v1.4.0...v1.5.0) (2023-02-05)
+
+
+### Features
+
+* add animations ([6261f19](https://github.com/vainapp/website/commit/6261f1913d1ed5ab09b69bb4f2a3d6c554334b9f))
+
 # [1.4.0](https://github.com/vainapp/front-end/compare/v1.3.0...v1.4.0) (2023-02-02)
 
 

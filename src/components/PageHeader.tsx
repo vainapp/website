@@ -1,3 +1,7 @@
+import { animationTimeSpacer } from '../helpers/animationTimeSpacer'
+
+import { FadeInUpWhenVisible } from './animations/FadeInUpWhenVisible'
+
 interface PageHeaderProps {
   title: string
   description: string
@@ -25,10 +29,14 @@ export const PageHeader: React.FC<PageHeaderProps> = ({
         />
       </div>
       <div className="relative mx-auto max-w-7xl py-24 px-6 sm:py-32 lg:px-8">
-        <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
-          {title}
-        </h1>
-        <p className="mt-6 max-w-3xl text-xl text-orange-50">{description}</p>
+        <FadeInUpWhenVisible delay={animationTimeSpacer(1)}>
+          <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
+            {title}
+          </h1>
+        </FadeInUpWhenVisible>
+        <FadeInUpWhenVisible delay={animationTimeSpacer(2)}>
+          <p className="mt-6 max-w-3xl text-xl text-orange-50">{description}</p>
+        </FadeInUpWhenVisible>
       </div>
     </div>
   )

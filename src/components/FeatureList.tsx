@@ -1,7 +1,11 @@
 import { CheckIcon } from '@heroicons/react/24/outline'
 import { Element } from 'react-scroll'
 
+import { animationTimeSpacer } from '../helpers/animationTimeSpacer'
+
 import { Link } from './Link'
+import { FadeInLeftWhenVisible } from './animations/FadeInLeftWhenVisible'
+import { FadeInUpWhenVisible } from './animations/FadeInUpWhenVisible'
 
 const features = [
   {
@@ -51,43 +55,56 @@ export const FeatureList: React.FC = () => {
     <Element name="feature-list" className="bg-white">
       <div className="mx-auto max-w-7xl py-24 px-6 sm:py-32 lg:grid lg:grid-cols-3 lg:gap-x-12 lg:px-8 lg:py-40">
         <div>
-          <h2 className="text-lg font-semibold leading-8 tracking-tight text-orange-600">
-            Tudo que você precisa
-          </h2>
-          <p className="mt-2 text-4xl font-bold tracking-tight text-gray-900">
-            Plataforma tudo-em-um
-          </p>
-          <p className="mt-6 text-base leading-7 text-gray-600">
-            Foque no que realmente importa: seus clientes. Nós te ajudamos a
-            cuidar do resto.
-          </p>
+          <FadeInUpWhenVisible delay={animationTimeSpacer(1)}>
+            <h2 className="text-lg font-semibold leading-8 tracking-tight text-orange-600">
+              Tudo que você precisa
+            </h2>
+          </FadeInUpWhenVisible>
+          <FadeInUpWhenVisible delay={animationTimeSpacer(2)}>
+            <p className="mt-2 text-4xl font-bold tracking-tight text-gray-900">
+              Plataforma tudo-em-um
+            </p>
+          </FadeInUpWhenVisible>
+          <FadeInUpWhenVisible delay={animationTimeSpacer(3)}>
+            <p className="mt-6 text-base leading-7 text-gray-600">
+              Foque no que realmente importa: seus clientes. Nós te ajudamos a
+              cuidar do resto.
+            </p>
+          </FadeInUpWhenVisible>
           <div className="mt-6">
-            <Link
-              href="/"
-              anchor="pricing"
-              className="inline-flex rounded-lg bg-orange-500 px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-orange-600 hover:bg-orange-600 hover:ring-orange-600"
-            >
-              Começar
-            </Link>
+            <FadeInUpWhenVisible delay={animationTimeSpacer(4)}>
+              <Link
+                href="/"
+                anchor="pricing"
+                className="inline-flex rounded-lg bg-orange-500 px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-orange-600 hover:bg-orange-600 hover:ring-orange-600"
+              >
+                Começar
+              </Link>
+            </FadeInUpWhenVisible>
           </div>
         </div>
         <div className="mt-20 lg:col-span-2 lg:mt-0">
           <dl className="grid grid-cols-1 gap-12 sm:grid-flow-col sm:grid-cols-2 sm:grid-rows-4">
-            {features.map((feature) => (
-              <div key={feature.name} className="relative">
-                <dt>
-                  <CheckIcon
-                    className="absolute mt-1 h-6 w-6 text-orange-600"
-                    aria-hidden="true"
-                  />
-                  <p className="ml-10 text-lg font-semibold leading-8 text-gray-900">
-                    {feature.name}
-                  </p>
-                </dt>
-                <dd className="mt-2 ml-10 text-base leading-7 text-gray-600">
-                  {feature.description}
-                </dd>
-              </div>
+            {features.map((feature, index) => (
+              <FadeInLeftWhenVisible
+                key={feature.name}
+                delay={animationTimeSpacer(index + 1)}
+              >
+                <div className="relative">
+                  <dt>
+                    <CheckIcon
+                      className="absolute mt-1 h-6 w-6 text-orange-600"
+                      aria-hidden="true"
+                    />
+                    <p className="ml-10 text-lg font-semibold leading-8 text-gray-900">
+                      {feature.name}
+                    </p>
+                  </dt>
+                  <dd className="mt-2 ml-10 text-base leading-7 text-gray-600">
+                    {feature.description}
+                  </dd>
+                </div>
+              </FadeInLeftWhenVisible>
             ))}
           </dl>
         </div>

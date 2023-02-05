@@ -5,7 +5,11 @@ import {
 } from '@heroicons/react/24/outline'
 import { Element } from 'react-scroll'
 
+import { animationTimeSpacer } from '../helpers/animationTimeSpacer'
+
 import { Link } from './Link'
+import { FadeInUpWhenVisible } from './animations/FadeInUpWhenVisible'
+import { FadeInWhenVisible } from './animations/FadeInWhenVisible'
 
 const supportLinks = [
   {
@@ -49,13 +53,17 @@ export const FAQHeader: React.FC = () => {
           />
         </div>
         <div className="relative mx-auto max-w-7xl py-24 px-6 sm:py-32 lg:px-8">
-          <h1 className="text-4xl font-bold tracking-tight text-white md:text-5xl lg:text-6xl">
-            Perguntas frequentes
-          </h1>
-          <p className="mt-6 max-w-3xl text-xl text-orange-50">
-            Tenha as respostas para as perguntas mais frequentes sobre o
-            funcionamento das nossas plataformas.
-          </p>
+          <FadeInUpWhenVisible delay={animationTimeSpacer(1)}>
+            <h1 className="text-4xl font-bold tracking-tight text-white md:text-5xl lg:text-6xl">
+              Perguntas frequentes
+            </h1>
+          </FadeInUpWhenVisible>
+          <FadeInUpWhenVisible delay={animationTimeSpacer(2)}>
+            <p className="mt-6 max-w-3xl text-xl text-orange-50">
+              Tenha as respostas para as perguntas mais frequentes sobre o
+              funcionamento das nossas plataformas.
+            </p>
+          </FadeInUpWhenVisible>
         </div>
       </div>
 
@@ -67,9 +75,10 @@ export const FAQHeader: React.FC = () => {
           Saber mais
         </h2>
         <div className="grid grid-cols-1 gap-y-20 lg:grid-cols-3 lg:gap-y-0 lg:gap-x-8">
-          {supportLinks.map((link) => (
-            <div
+          {supportLinks.map((link, index) => (
+            <FadeInWhenVisible
               key={link.name}
+              delay={animationTimeSpacer(2 + index)}
               className="flex flex-col rounded-2xl bg-white shadow-xl"
             >
               <div className="relative flex-1 px-6 pt-16 pb-8 md:px-8">
@@ -94,7 +103,7 @@ export const FAQHeader: React.FC = () => {
                   Saber mais<span aria-hidden="true"> &rarr;</span>
                 </Link>
               </div>
-            </div>
+            </FadeInWhenVisible>
           ))}
         </div>
       </section>

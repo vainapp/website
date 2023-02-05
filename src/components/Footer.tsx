@@ -13,7 +13,7 @@ const navigation = {
   company: [{ name: 'Sobre nós', href: '/about' }],
   legal: [
     { name: 'Termos de uso', href: '/terms-of-use' },
-    { name: 'Política de privacidade', href: '/privacy-policy' },
+    { name: 'Política de privacidade', href: '/privacy-statement' },
   ],
   // TODO: Add social links
   social: [

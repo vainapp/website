@@ -78,7 +78,7 @@ const resources = [
     name: 'Política de privacidade',
     description:
       'A segurança e privacidade dos seus dados é muito importante para nós.',
-    href: '/privacy-policy',
+    href: '/privacy-statement',
   },
 ]
 

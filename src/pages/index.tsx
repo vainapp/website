@@ -5,7 +5,6 @@ import { CTAFreeTrial } from '../components/CTAFreeTrial'
 import { CTANewsletter } from '../components/CTANewsletter'
 import { FAQHeader } from '../components/FAQHeader'
 import { FeatureList } from '../components/FeatureList'
-import { FloatingBottomBanner } from '../components/FloatingBottomBanner'
 import { Hero } from '../components/Hero'
 import { HighlightedFeatures } from '../components/HighlightedFeatures'
 import { Pricing } from '../components/Pricing'
@@ -33,7 +32,6 @@ export default function Home(): JSX.Element {
       <Pricing />
       <FAQHeader />
       <CTANewsletter />
-      <FloatingBottomBanner />
     </>
   )
 }

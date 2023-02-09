@@ -73,12 +73,21 @@ const resources = [
     description:
       'Ao acessar e usar nosso site e plataforma de gerenciamento de negócios, você concorda em cumprir os nossos termos de uso.',
     href: '/terms-of-use',
+    anchor: '',
   },
   {
     name: 'Política de privacidade',
     description:
       'A segurança e privacidade dos seus dados é muito importante para nós.',
     href: '/privacy-statement',
+    anchor: '',
+  },
+  {
+    name: 'Dúvidas frequentes',
+    description:
+      'Dúvidas frequentes sobre o uso da plataforma Vain e seus recursos.',
+    href: '/',
+    anchor: 'faq',
   },
 ]
 
@@ -201,13 +210,15 @@ export const Header: React.FC = () => {
           >
             Planos
           </Link>
+
           <Link
-            href="/"
-            anchor="faq"
+            href="/about"
+            anchor="about"
             className="text-base font-medium text-gray-700 hover:text-gray-900 hover:cursor-pointer"
           >
-            Dúvidas
+            Sobre
           </Link>
+
           <Link
             href="/contact"
             className="text-base font-medium text-gray-700 hover:text-gray-900 hover:cursor-pointer"
@@ -250,6 +261,7 @@ export const Header: React.FC = () => {
                           <Link
                             key={resource.name}
                             href={resource.href}
+                            anchor={resource.anchor}
                             className="-m-3 block rounded-md p-3 hover:bg-gray-50"
                           >
                             <p className="text-base font-medium text-gray-900">
@@ -356,11 +368,10 @@ export const Header: React.FC = () => {
                 </Link>
 
                 <Link
-                  href="/"
-                  anchor="faq"
+                  href="/about"
                   className="text-base font-medium text-gray-900 hover:text-gray-700"
                 >
-                  Dúvidas
+                  Sobre
                 </Link>
 
                 <Link
@@ -373,6 +384,7 @@ export const Header: React.FC = () => {
                   <Link
                     key={resource.name}
                     href={resource.href}
+                    anchor={resource.anchor}
                     className="text-base font-medium text-gray-900 hover:text-gray-700"
                   >
                     {resource.name}

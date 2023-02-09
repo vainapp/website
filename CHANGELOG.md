@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/vainapp/website/compare/v1.5.0...v1.6.0) (2023-02-09)
+
+
+### Features
+
+* add about screen ([#31](https://github.com/vainapp/website/issues/31)) ([454512c](https://github.com/vainapp/website/commit/454512c8d8b58bf52b015efb5feaf847dbf03e27))
+
 # [1.5.0](https://github.com/vainapp/website/compare/v1.4.0...v1.5.0) (2023-02-05)
 
 

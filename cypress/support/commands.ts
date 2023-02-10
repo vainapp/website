@@ -57,11 +57,20 @@ Cypress.Commands.add('fillSMSCodeForm', () => {
   cy.get('button[data-testid="verify-phone-number-button"]').click()
 })
 
+Cypress.Commands.add('fillSMSCodeFormEmployee', () => {
+  cy.visit(
+    'http://localhost:3000/employee/email-verified?needs_sms_verification=true&employee_id=employee_id'
+  )
+  cy.get('input[data-testid="sms-code-input"]').type('1234')
+  cy.get('button[data-testid="verify-phone-number-button"]').click()
+})
+
 declare global {
   namespace Cypress {
     interface Chainable {
       fillSignUpForm(): Chainable<void>
       fillSMSCodeForm(): Chainable<void>
+      fillSMSCodeFormEmployee(): Chainable<void>
       // login(email: string, password: string): Chainable<void>
       // drag(subject: string, options?: Partial<TypeOptions>): Chainable<Element>
       // dismiss(

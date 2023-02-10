@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/vainapp/website/compare/v1.6.0...v1.7.0) (2023-02-10)
+
+
+### Features
+
+* **employee:** add email verified ([92a2403](https://github.com/vainapp/website/commit/92a24034d88ae7b0ed6822da7c0af7a518228cb7))
+
 # [1.6.0](https://github.com/vainapp/website/compare/v1.5.0...v1.6.0) (2023-02-09)
 
 

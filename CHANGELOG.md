@@ -1,3 +1,10 @@
+## [1.7.3](https://github.com/vainapp/website/compare/v1.7.2...v1.7.3) (2023-02-13)
+
+
+### Bug Fixes
+
+* cypress with pnpm ([32736b0](https://github.com/vainapp/website/commit/32736b0e4a618d0cdba9c962e3b1bfa1765b47c2))
+
 ## [1.7.2](https://github.com/vainapp/website/compare/v1.7.1...v1.7.2) (2023-02-13)
 
 

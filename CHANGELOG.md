@@ -1,3 +1,10 @@
+## [1.7.1](https://github.com/vainapp/website/compare/v1.7.0...v1.7.1) (2023-02-13)
+
+
+### Bug Fixes
+
+* remove sentry from newsletter ([b5aa5ff](https://github.com/vainapp/website/commit/b5aa5ff910979dce0d1f417530dd96a8928c0bc9))
+
 # [1.7.0](https://github.com/vainapp/website/compare/v1.6.0...v1.7.0) (2023-02-10)
 
 

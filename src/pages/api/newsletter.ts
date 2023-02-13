@@ -1,6 +1,5 @@
 import client from '@sendgrid/client'
 import { ClientRequest } from '@sendgrid/client/src/request'
-import * as Sentry from '@sentry/nextjs'
 import { NextApiRequest, NextApiResponse } from 'next'
 
 client.setApiKey(process.env.SENDGRID_API_KEY as string)
@@ -41,8 +40,6 @@ export default async function handler(
 
     response.status(sendgridResponse.statusCode).json(sendgridResponse.body)
   } catch (error: any) {
-    Sentry.captureException(error)
-
     response.status(500).json({
       message:
         'Não foi possível adicionar seu e-mail à nossa lista. Por favor, tente novamente mais tarde.',

@@ -1,3 +1,10 @@
+## [1.7.2](https://github.com/vainapp/website/compare/v1.7.1...v1.7.2) (2023-02-13)
+
+
+### Bug Fixes
+
+* install pnpm before running cypress ([df44b92](https://github.com/vainapp/website/commit/df44b92b50382609a977ab1d4f25f0b254bd67cd))
+
 ## [1.7.1](https://github.com/vainapp/website/compare/v1.7.0...v1.7.1) (2023-02-13)
 
 

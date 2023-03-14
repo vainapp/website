@@ -1,8 +1,6 @@
 import { URLS } from '../constants/urls'
-import { animationTimeSpacer } from '../helpers/animationTimeSpacer'
 
 import { Link } from './Link'
-import { FadeInWhenVisible } from './animations/FadeInWhenVisible'
 
 export const Hero: React.FC = () => {
   return (
@@ -39,60 +37,50 @@ export const Hero: React.FC = () => {
         <div className="relative px-6 lg:px-8">
           <div className="mx-auto max-w-3xl pt-20 pb-32 sm:pt-48 sm:pb-40">
             <div>
-              <FadeInWhenVisible delay={animationTimeSpacer(6)}>
-                <div className="hidden sm:mb-8 sm:flex sm:justify-center">
-                  <div className="relative overflow-hidden rounded-full py-1.5 px-4 text-sm leading-6 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
-                    <span className="text-gray-600">
-                      Versão de testes grátis em breve{' '}
-                      <Link
-                        href="/"
-                        anchor="highlighted-features"
-                        className="font-semibold text-orange-500"
-                      >
-                        <span className="absolute inset-0" aria-hidden="true" />
-                        Saber mais <span aria-hidden="true">&rarr;</span>
-                      </Link>
-                    </span>
-                  </div>
-                </div>
-              </FadeInWhenVisible>
-              <div>
-                <FadeInWhenVisible>
-                  <h1 className="text-4xl font-bold tracking-tight sm:text-center sm:text-6xl">
-                    Leve a estética para o próximo nível
-                  </h1>
-                </FadeInWhenVisible>
-                <FadeInWhenVisible delay={animationTimeSpacer(1)}>
-                  <p className="mt-6 text-lg leading-8 text-gray-600 sm:text-center">
-                    Seu salão automatizado e com a melhor experiência para seus
-                    clientes. Tudo sob o seu controle, na palma da sua mão.
-                  </p>
-                </FadeInWhenVisible>
-                <div className="mt-8 flex gap-x-4 sm:justify-center">
-                  <FadeInWhenVisible delay={animationTimeSpacer(2)}>
+              <div className="hidden sm:mb-8 sm:flex sm:justify-center">
+                <div className="relative overflow-hidden rounded-full py-1.5 px-4 text-sm leading-6 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
+                  <span className="text-gray-600">
+                    Versão de testes grátis em breve{' '}
                     <Link
                       href="/"
                       anchor="highlighted-features"
-                      className="inline-block rounded-lg bg-orange-500 px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-orange-500 hover:bg-orange-600 hover:ring-orange-600"
+                      className="font-semibold text-orange-500"
                     >
-                      Começar{' '}
-                      <span className="text-orange-200" aria-hidden="true">
-                        &rarr;
-                      </span>
+                      <span className="absolute inset-0" aria-hidden="true" />
+                      Saber mais <span aria-hidden="true">&rarr;</span>
                     </Link>
-                  </FadeInWhenVisible>
-                  <FadeInWhenVisible delay={animationTimeSpacer(3)}>
-                    <Link
-                      href={URLS.DASHBOARD_URL}
-                      target="_blank"
-                      className="inline-block rounded-lg px-4 py-1.5 text-base font-semibold leading-7 text-gray-900 ring-1 ring-gray-900/10 hover:ring-gray-900/20"
-                    >
-                      Já tenho uma conta{' '}
-                      <span className="text-gray-400" aria-hidden="true">
-                        &rarr;
-                      </span>
-                    </Link>
-                  </FadeInWhenVisible>
+                  </span>
+                </div>
+              </div>
+              <div>
+                <h1 className="text-4xl font-bold tracking-tight sm:text-center sm:text-6xl">
+                  Leve a estética para o próximo nível
+                </h1>
+                <p className="mt-6 text-lg leading-8 text-gray-600 sm:text-center">
+                  Seu salão automatizado e com a melhor experiência para seus
+                  clientes. Tudo sob o seu controle, na palma da sua mão.
+                </p>
+                <div className="mt-8 flex gap-x-4 sm:justify-center">
+                  <Link
+                    href="/"
+                    anchor="highlighted-features"
+                    className="inline-block rounded-lg bg-orange-500 px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-orange-500 hover:bg-orange-600 hover:ring-orange-600"
+                  >
+                    Começar{' '}
+                    <span className="text-orange-200" aria-hidden="true">
+                      &rarr;
+                    </span>
+                  </Link>
+                  <Link
+                    href={URLS.DASHBOARD_URL}
+                    target="_blank"
+                    className="inline-block rounded-lg px-4 py-1.5 text-base font-semibold leading-7 text-gray-900 ring-1 ring-gray-900/10 hover:ring-gray-900/20"
+                  >
+                    Já tenho uma conta{' '}
+                    <span className="text-gray-400" aria-hidden="true">
+                      &rarr;
+                    </span>
+                  </Link>
                 </div>
               </div>
               <div className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]">

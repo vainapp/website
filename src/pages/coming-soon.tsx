@@ -1,6 +1,4 @@
 import { CTANewsletter } from '../components/CTANewsletter'
-import { FadeInWhenVisible } from '../components/animations/FadeInWhenVisible'
-import { animationTimeSpacer } from '../helpers/animationTimeSpacer'
 
 export default function ComingSoon(): JSX.Element {
   return (
@@ -37,27 +35,21 @@ export default function ComingSoon(): JSX.Element {
         <div className="relative px-6 lg:px-8">
           <div className="mx-auto max-w-3xl pt-20 pb-16 sm:pt-48 sm:pb-20">
             <div>
-              <FadeInWhenVisible delay={animationTimeSpacer(4)}>
-                <div className="hidden sm:mb-8 sm:flex sm:justify-center">
-                  <div className="relative overflow-hidden rounded-full py-1.5 px-4 text-sm leading-6 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
-                    <span className="text-gray-600">
-                      Estamos trabalhando na primeira versão da plataforma
-                    </span>
-                  </div>
+              <div className="hidden sm:mb-8 sm:flex sm:justify-center">
+                <div className="relative overflow-hidden rounded-full py-1.5 px-4 text-sm leading-6 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
+                  <span className="text-gray-600">
+                    Estamos trabalhando na primeira versão da plataforma
+                  </span>
                 </div>
-              </FadeInWhenVisible>
+              </div>
               <div>
-                <FadeInWhenVisible>
-                  <h1 className="text-4xl font-bold tracking-tight sm:text-center sm:text-6xl">
-                    Leve a estética para o próximo nível
-                  </h1>
-                </FadeInWhenVisible>
-                <FadeInWhenVisible delay={animationTimeSpacer(1)}>
-                  <p className="mt-6 text-lg leading-8 text-gray-600 sm:text-center">
-                    Seu salão automatizado e com a melhor experiência para seus
-                    clientes. Tudo sob o seu controle, na palma da sua mão.
-                  </p>
-                </FadeInWhenVisible>
+                <h1 className="text-4xl font-bold tracking-tight sm:text-center sm:text-6xl">
+                  Leve a estética para o próximo nível
+                </h1>
+                <p className="mt-6 text-lg leading-8 text-gray-600 sm:text-center">
+                  Seu salão automatizado e com a melhor experiência para seus
+                  clientes. Tudo sob o seu controle, na palma da sua mão.
+                </p>
               </div>
               <div className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]">
                 <svg

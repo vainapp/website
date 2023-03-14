@@ -1,3 +1,10 @@
+## [1.7.4](https://github.com/vainapp/website/compare/v1.7.3...v1.7.4) (2023-03-14)
+
+
+### Bug Fixes
+
+* remove motions to avoid layouf shifts ([258c713](https://github.com/vainapp/website/commit/258c713f9cfa1c0a828a483a7c258880696455cd))
+
 ## [1.7.3](https://github.com/vainapp/website/compare/v1.7.2...v1.7.3) (2023-02-13)
 
 

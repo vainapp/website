@@ -1,3 +1,10 @@
+## [1.7.5](https://github.com/vainapp/website/compare/v1.7.4...v1.7.5) (2023-08-20)
+
+
+### Bug Fixes
+
+* change the validation that left the field red ([#34](https://github.com/vainapp/website/issues/34)) ([e2c2a48](https://github.com/vainapp/website/commit/e2c2a48ff94676f36356e9c64920c23dbb4f748a))
+
 ## [1.7.4](https://github.com/vainapp/website/compare/v1.7.3...v1.7.4) (2023-03-14)
 
 

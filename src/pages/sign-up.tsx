@@ -298,16 +298,14 @@ export default function SignUp(): JSX.Element | null {
                   type="text"
                   autoComplete="name"
                   {...form.register('name')}
-                  aria-invalid={
-                    form.formState.errors.companyName?.message != null
-                  }
+                  aria-invalid={form.formState.errors.name?.message != null}
                   aria-describedby={
-                    form.formState.errors.companyName?.message != null
+                    form.formState.errors.name?.message != null
                       ? 'name-error'
                       : undefined
                   }
                   className={classNames(
-                    form.formState.errors.companyName?.message != null
+                    form.formState.errors.name?.message != null
                       ? 'border-red-300 text-red-900 focus:border-red-500 focus:ring-red-500'
                       : 'border-gray-300 focus:border-orange-500 focus:ring-orange-500',
                     'block w-full rounded-md shadow-sm sm:text-sm disabled:cursor-not-allowed disabled:border-gray-200 disabled:bg-gray-50 disabled:text-gray-500'
